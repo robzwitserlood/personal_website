@@ -1,4 +1,4 @@
-baseurl = "https://username.github.io"
+baseurl = "https://robzwitserlood.s3.nl-ams.scw.cloud"
 DefaultContentLanguage = "en"
 title = "Home"
 # Using theme as git submodule
@@ -73,3 +73,8 @@ pygmentsCodefencesGuessSyntax = true
     name = "About"
     url = "page/about/"
     weight = 3
+
+#[[menu.main]]
+#    name = "Tags"
+#    url = "page/tags/"
+#    weight = 4
