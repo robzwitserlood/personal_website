@@ -10,6 +10,11 @@ pygmentsCodefencesGuessSyntax = true
 #pygmentsUseClassic = true
 #pygmentOptions = "linenos=inline"
 
+[deployment]
+  [deployment.targets]
+    - name: "production"
+      URL: "https://robzwitserlood.s3.nl-ams.scw.cloud"
+
 [Services]
   [Services.Disqus]
     # Shortname = "XXX"
