@@ -15,11 +15,10 @@ jobs:
       with:
         hugo-version: '0.137.0'
         extended: true
-        withdeploy: true
     - name: build site
       run: hugo --minify
     - name: deploy to s3
-      run: hugo deploy --force --maxDeletes -1
+      run: hugo deploy --maxDeletes -1
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.SCW_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
