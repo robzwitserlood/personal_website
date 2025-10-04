@@ -15,7 +15,7 @@ jobs:
       with:
         hugo-version: 'latest'
         extended: true
-        deploy: true
+        withdeploy: true
     - name: build site
       run: hugo --minify
     - name: deploy to s3
