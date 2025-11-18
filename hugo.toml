@@ -1,4 +1,4 @@
-baseurl = "http://robzwitserlood/"
+baseurl = "https://robzwitserlood.s3-website.nl-ams.scw.cloud/"
 DefaultContentLanguage = "en"
 title = "Home"
 # Using theme as git submodule
