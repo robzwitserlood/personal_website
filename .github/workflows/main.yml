@@ -29,10 +29,14 @@ jobs:
           fi
         shell: bash
       
+      - name: build site
+        run: hugo
+        shell: bash
+      
       - name: Deploy to Scaleway
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.SCW_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SCW_SECRET_ACCESS_KEY }}
           AWS_REGION: nl-ams
-        run: hugo deploy --target=production
+        run: hugo deploy --force --maxDeletes -1
         shell: bash
