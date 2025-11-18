@@ -14,8 +14,8 @@ jobs:
       - name: Install Hugo
         run: |
           set -e
-          HUGO_DOWNLOAD=hugo_extended_withdeploy_0.139.0_Linux-64bit.tar.gz
-          wget https://github.com/gohugoio/hugo/releases/download/0.139.0/${HUGO_DOWNLOAD}
+          HUGO_DOWNLOAD=hugo_extended_withdeploy_0.152.2_Linux-64bit.tar.gz
+          wget https://github.com/gohugoio/hugo/releases/download/v0.152.2/${HUGO_DOWNLOAD}
           tar xvzf ${HUGO_DOWNLOAD} hugo
           mv hugo $HOME/hugo
           echo "$HOME" >> $GITHUB_PATH
