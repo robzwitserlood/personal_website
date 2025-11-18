@@ -12,8 +12,8 @@ pygmentsCodefencesGuessSyntax = true
 
 [deployment]
   [deployment.targets]
-    - name: "production"
-      URL: "https://robzwitserlood.s3.nl-ams.scw.cloud"
+    name = "production"
+    URL = "https://robzwitserlood.s3.nl-ams.scw.cloud"
 
 [Services]
   [Services.Disqus]
