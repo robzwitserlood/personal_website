@@ -10,9 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build and deploy
-        uses: AlbertMorenoDEV/deploy-hugo-to-s3-action@v0.0.10
-        with:
-          hugo-version: 0.139.0
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      - name: Install Hugo
+        run: |
+          set -e
+          HUGO_DOWNLOAD=hugo_extended_withdeploy_0.139.0_Linux-64bit.tar.gz
+          wget https://github.com/gohugoio/hugo/releases/download/0.139.0/${HUGO_DOWNLOAD}
+          tar xvzf ${HUGO_DOWNLOAD} hugo
+          mv hugo $HOME/hugo
+          echo "$HOME" >> $GITHUB_PATH
+        shell: bash
+
+      - name: Deploy to Scaleway
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: hugo deploy --target=production
