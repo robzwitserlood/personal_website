@@ -2,33 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home</title>
-    <link>https://robzwitserlood.s3.nl-ams.scw.cloud/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Home</description>
     <generator>Hugo</generator>
     <language>en</language>
     <managingEditor>robzwitserlood@tuta.io (Rob Zwitserlood)</managingEditor>
     <webMaster>robzwitserlood@tuta.io (Rob Zwitserlood)</webMaster>
-    <atom:link href="https://robzwitserlood.s3.nl-ams.scw.cloud/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title></title>
-      <link>https://robzwitserlood.s3.nl-ams.scw.cloud/page/cv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
-      <guid>https://robzwitserlood.s3.nl-ams.scw.cloud/page/cv/</guid>
-      <description>&lt;p&gt;[ ]{style=&amp;ldquo;background-color: bgcol&amp;rdquo;}&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;[Residence:]{style=&amp;ldquo;color: bgcol&amp;rdquo;}   Amsterdam, The Netherlands&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;[Date of birth:]{style=&amp;ldquo;color: bgcol&amp;rdquo;}   20 January 1990&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;[Contact:]{style=&amp;ldquo;color: bgcol&amp;rdquo;}   E-mail:&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;[Links:]{style=&amp;ldquo;color: bgcol&amp;rdquo;}&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;[Languages:]{style=&amp;ldquo;color: bgcol&amp;rdquo;}   Dutch (mother tongue), English (fluent)&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;::: {style=&amp;ldquo;background-color: sectcol&amp;rdquo;}&#xA;:::&lt;/p&gt;&#xA;&lt;p&gt;&lt;br&gt;&#xA;My ambition in one quote: &lt;strong&gt;&amp;quot;Those who strive for simplicity, will&#xA;first have to master the complexity.&amp;quot;&lt;/strong&gt; I&amp;rsquo;m an analytical, inquisitive&#xA;and independent young professional with 3+ years of work experience.&#xA;After a career change to Data Science, I&amp;rsquo;m now looking for a research&#xA;oriented job opportunity in the public sector with a positive impact on&#xA;society and the environment.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
-      <link>https://robzwitserlood.s3.nl-ams.scw.cloud/post/2021-01-01-thesis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
-      <guid>https://robzwitserlood.s3.nl-ams.scw.cloud/post/2021-01-01-thesis/</guid>
+      <title>About me</title>
+      <link>http://localhost:1313/post/2021-01-01-thesis/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate><author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/post/2021-01-01-thesis/</guid>
       <description>&lt;h1 id=&#34;sec:intro&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;Food systems have a substantial global environmental footprint by&#xA;contributing to problems such as climate change, biodiversity loss, and&#xA;land system change [@Willett2019]. In fact, the food supply chain&#xA;accounts for one quarter of global anthropogenic Green House Gas (GHG)&#xA;emission, one third of global terrestrial acidification and about 80% of&#xA;eutrophication. Furthermore, at least 6 out of 17 of the United Nations&#39;&#xA;Sustainable Development Goals are concerned with food&#xA;[@Poore2018a; @Johnston2016].&lt;/p&gt;</description>
     </item>
     <item>
-      <title>About me</title>
-      <link>https://robzwitserlood.s3.nl-ams.scw.cloud/page/about/</link>
+      <title></title>
+      <link>http://localhost:1313/page/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
-      <guid>https://robzwitserlood.s3.nl-ams.scw.cloud/page/about/</guid>
-      <description>&lt;p&gt;My name is Inigo Montoya. I have the following qualities:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I rock a great mustache&lt;/li&gt;&#xA;&lt;li&gt;I&amp;rsquo;m extremely loyal to my family&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;What else do you need?&lt;/p&gt;&#xA;&lt;h3 id=&#34;my-history&#34;&gt;my history&lt;/h3&gt;&#xA;&lt;p&gt;To be honest, I&amp;rsquo;m having some trouble remembering right now, so why don&amp;rsquo;t you just watch &lt;a href=&#34;https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29&#34;&gt;my movie&lt;/a&gt; and it will answer &lt;strong&gt;all&lt;/strong&gt; your questions.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/page/cv/</guid>
+      <description>&lt;h1 id=&#34;rob-zwitserlood&#34;&gt;Rob Zwitserlood&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;photo.jpg&#34; alt=&#34;Profile Photo&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Residence:&lt;/strong&gt; Amsterdam, The Netherlands&lt;br&gt;&#xA;&lt;strong&gt;Contact:&lt;/strong&gt; &lt;em&gt;E-mail:&lt;/em&gt;&lt;br&gt;&#xA;&lt;strong&gt;Links:&lt;/strong&gt;&lt;br&gt;&#xA;&lt;strong&gt;Languages:&lt;/strong&gt; Dutch (mother tongue), English (fluent)&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;about-me&#34;&gt;About Me&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;&amp;ldquo;Those who strive for simplicity, will first have to master the complexity.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;I&amp;rsquo;m an analytical, inquisitive, and independent young professional with 3+ years of work experience. After a career change to Data Science, I&amp;rsquo;m now looking for a research-oriented job opportunity in the public sector with a positive impact on society and the environment.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About me</title>
+      <link>http://localhost:1313/page/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/page/about/</guid>
+      <description>&lt;p&gt;My name is Rob&lt;/p&gt;&#xA;&lt;h3 id=&#34;my-history&#34;&gt;my history&lt;/h3&gt;&#xA;&lt;p&gt;To be honest, I&amp;rsquo;m having some trouble remembering right now&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
