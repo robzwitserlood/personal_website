@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Home</title>
-    <link>https://robzwitserlood.s3.nl-ams.scw.cloud/post/</link>
-    <description>Recent content in Posts on Home</description>
-    <generator>Hugo</generator>
+    <title>Posts on Blowfish</title>
+    <link>http://localhost:1313/post/</link>
+    <description>Recent content in Posts on Blowfish</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>robzwitserlood@tuta.io (Rob Zwitserlood)</managingEditor>
     <webMaster>robzwitserlood@tuta.io (Rob Zwitserlood)</webMaster>
-    <atom:link href="https://robzwitserlood.s3.nl-ams.scw.cloud/post/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2025 Rob Zwitserlood</copyright>
+    <lastBuildDate>Fri, 01 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
-      <title></title>
-      <link>https://robzwitserlood.s3.nl-ams.scw.cloud/post/2021-01-01-thesis/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
-      <guid>https://robzwitserlood.s3.nl-ams.scw.cloud/post/2021-01-01-thesis/</guid>
-      <description>&lt;h1 id=&#34;sec:intro&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;Food systems have a substantial global environmental footprint by&#xA;contributing to problems such as climate change, biodiversity loss, and&#xA;land system change [@Willett2019]. In fact, the food supply chain&#xA;accounts for one quarter of global anthropogenic Green House Gas (GHG)&#xA;emission, one third of global terrestrial acidification and about 80% of&#xA;eutrophication. Furthermore, at least 6 out of 17 of the United Nations&#39;&#xA;Sustainable Development Goals are concerned with food&#xA;[@Poore2018a; @Johnston2016].&lt;/p&gt;</description>
+      <title>About me</title>
+      <link>http://localhost:1313/post/2021-01-01-thesis/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/post/2021-01-01-thesis/</guid>
+      <description></description>
+      
     </item>
+    
   </channel>
 </rss>
