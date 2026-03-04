@@ -2,17 +2,38 @@
 <div id="education" class="section">
     <div class="section__heading">
         <h2 class="section__title">
-            {{ i18n "education" }}
+            Education
         </h2>
     </div>
     <div class="section__content">
         {{ range .Education }}
-            <div class="education__item">
-                <h3 class="education__title">{{ .Course | safeHTML }}</h3>
-                <h4 class="education__place">{{ .Place | safeHTML }}</h4>
-                <h4 class="education__date">{{ .Date | safeHTML }}</h4>
-                <div class="education__description">{{ .Details | safeHTML }}</div>
+        {{ if .Class }}
+        <div class="education__item {{ .Class }}">
+        {{ else }}
+        <div class="education__item">
+        {{ end }}
+            <div class="experience__header">
+                <h3 class="experience__company">
+                    {{ .University | safeHTML }}
+                </h3>
+                <h3 class="experience__place">{{ .Place | safeHTML }}</h3>
             </div>
+            {{ range .Courses }}
+            <div class="experience__job">
+                <div class="experience__subheader">
+                    <h3 class="experience__position">
+                        {{ .Title | safeHTML}}
+                    </h3>
+                    <h3 class="experience__date">{{ .Date | safeHTML }}</h3>
+                </div>
+                <ul>
+                    {{ range .Details }}
+                    <li class="experience__bullet">{{ . | safeHTML }}</li>
+                    {{ end }}
+                </ul>
+            </div>
+            {{ end }}
+        </div>
         {{ end }}
     </div>
 </div>
