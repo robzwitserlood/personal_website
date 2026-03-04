@@ -1,7 +1,7 @@
 BasicInfo:
   FirstName: Rob
   LastName: Zwitserlood
-  Photo: <img src="https://robzwitserlood.stackstorage.nl/s/MDLuUQPj5gjsB8C7" alt="Profile phote">
+  Photo: img/profile.jpg
   Contacts:
     - Icon: fas fa-phone
       Info: +31 6 28 06 16 95
