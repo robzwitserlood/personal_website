@@ -72,49 +72,30 @@ Skills:
   - Family: Programming
     Items:
       - Python
-      - HTML (including Jinja)
-      - Javascript
-      - CSS
-      - SASS
       - SQL
-      - C#
       - Bash
-      - MATLAB
   - Family: Frameworks
     Items:
-      - Django
       - Flask
       - Hugo
-      - React
   - Family: Developer Tools
     Items:
       - Git
       - Docker
-      - Jenkins
-      - AWS
-  - Family: Misc
-    Items:
-      - Adobe Tools
-      - LaTeX
 
 Languages:
-  - Name: Portuguese
+  - Name: Dutch
     Level: Native
   - Name: English
-    Level: C2
-  - Name: Spanish
-    Level: B1
-  - Name: German
-    Level: B1
+    Level: Fluent
 
 Diplomas:
   - ISTQB Tester Certification (2019)
   - English Cambridge CAE (2009)
 
 Interests:
-  - Bouldering
-  - Cooking
-  - Windsurfing
-  - Bossa Nova
-  - Design
-  - Languages
+  - Cyling/mountinebiking
+  - Tennis
+  - Kitesurfing
+  - Running
+  - Yin yoga
