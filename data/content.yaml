@@ -1,18 +1,18 @@
 BasicInfo:
   FirstName: Rob
   LastName: Zwitserlood
-  Photo: img/profile.jpg
+#  Photo: img/profile.jpg
   Contacts:
     - Icon: fas fa-phone
       Info: +31 6 28 06 16 95
     - Icon: fas fa-envelope
       Info: robzwitserlood@tuta.io
-#    - Icon: fas fa-globe
-#      Info: <a class="contact__link" href="https://ines-almeida.com" target="_blank">ines-almeida.com</a>
+    - Icon: fas fa-globe
+      Info: <a class="contact__link" href="https://robzwitserlood.s3-website.nl-ams.scw.cloud/" target="_blank">ines-almeida.com</a>
     - Icon: fas fa-map-marker-alt
       Info: Heiloo, The Netherlands
 
-Profile: "My ambition in one quote: 'Those who strive for simplicity, will first have to master the complexity.' I'm an analytical, inquisitive and independent young professional with 3+ years of work experience. After a career change to Data Science, I'm now looking for a job opportunity in AI engineering"
+Profile: "'AI as normal technology', this is how I approach my work nowadays. I'm a AI expert with 4+ years experience in Data Science and 3+ years experience in business roles. My talents are analitycal abilities, deep understanding and ...v. My ambition is to master the full sweet of data and AI skills, in my next job I hope to develop data and AI engineering."
 
 Experience:
   - Employer: The Netherlands Environmental Assessment Agency
