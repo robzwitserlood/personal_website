@@ -4,15 +4,15 @@ BasicInfo:
   Photo: img/avatar.jpg
   Contacts:
     - Icon: fas fa-phone
-      Info: +44 123 456 789
+      Info: +31 6 28 06 16 95
     - Icon: fas fa-envelope
-      Info: contact@ines-almeida.com
+      Info: robzwitserlood@tuta.io
     - Icon: fas fa-globe
-      Info: <a class="contact__link" href="https://ines-almeida.com" target="_blank">ines-almeida.com</a>
+      Info: <a class="contact__link" href="https://robzwitserlood.s3-website.nl-ams.scw.cloud/" target="_blank">Personal website</a>
     - Icon: fas fa-map-marker-alt
-      Info: Portugal
+      Info: Heiloo, The Netherlands
 
-Profile: "[AI as normal technology](https://knightcolumbia.org/content/ai-as-normal-technology)"
+Profile: "'AI as normal technology', this is how I approach my work nowadays. I'm a AI expert with 4+ years experience in Data Science and 3+ years experience in business roles. My talents are analitycal abilities, deep understanding and ...v. My ambition is to master the full sweet of data and AI skills, in my next job I hope to develop data and AI engineering."
 
 Experience:
   - Employer: The Netherlands Environmental Assessment Agency
@@ -72,49 +72,31 @@ Skills:
   - Family: Programming
     Items:
       - Python
-      - HTML (including Jinja)
-      - Javascript
-      - CSS
-      - SASS
       - SQL
-      - C#
       - Bash
-      - MATLAB
   - Family: Frameworks
     Items:
-      - Django
       - Flask
       - Hugo
-      - React
   - Family: Developer Tools
     Items:
       - Git
       - Docker
-      - Jenkins
-      - AWS
-  - Family: Misc
-    Items:
-      - Adobe Tools
-      - LaTeX
 
 Languages:
-  - Name: Portuguese
+  - Name: Dutch
     Level: Native
   - Name: English
-    Level: C2
-  - Name: Spanish
-    Level: B1
-  - Name: German
-    Level: B1
+    Level: Fluent
 
 Diplomas:
   - ISTQB Tester Certification (2019)
   - English Cambridge CAE (2009)
 
 Interests:
-  - Bouldering
-  - Cooking
-  - Windsurfing
-  - Bossa Nova
-  - Design
-  - Languages
+  - Cycling
+  - Mountainbiking
+  - Tennis
+  - Kite surfing
+  - Running
+  - Yin yoga
