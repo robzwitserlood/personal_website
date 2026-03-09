@@ -15,55 +15,58 @@ BasicInfo:
 Profile: "[AI as normal technology](https://knightcolumbia.org/content/ai-as-normal-technology)"
 
 Experience:
-  - Employer: Super Cool Company
-    Place: Oxford, UK
+  - Employer: The Netherlands Environmental Assessment Agency
+    Place: The Hague, NL
     Positions:
-      - Title: Software Engineer
-        Date: Jan 2020 - Present
+      - Title: Data Scientist
+        Date: Dec 2021 - Present
         Details:
-          - Arcu vitae elementum curabitur vitae nunc sed velit
-          - Viverra aliquet eget sit amet tellus cras adipiscing
-          - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          - Nisl tincidunt eget nullam non nisi est
-          - Sed viverra tellus in hac.
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Badges: ['Python', 'Django', 'OOP', 'Javascript', 'HTML', 'CSS', 'Agile']
-      - Title: Software Tester
-        Date: Mar 2019 - Jan 2020
-        Details:
-          - Nisl tincidunt eget nullam non nisi est
-          - Sed viverra tellus in hac.
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Badges: ['Python', 'BDD', 'Selenium', 'OOP', 'Agile']
-  - Employer: Another super cool company
-    Place: Lisbon, PT
+          - Computer vision for satellite image analysis
+          - CI/CD on data ingestion pipeline 
+          - Vector search for dutch policy documents
+          - Text analysis with semantic embeddings
+        Badges: ['Python', 'Spark', 'Databricks', 'AWS', 'CI/CD']
+  - Employer: TomTom
+    Place: Amsterdam, NL
     Positions:
-      - Title: Flow Cytometry Resource Specialist
-        Date: Jan 2018 - Mar 2019
+      - Title: Product marketing manager
+        Date: April 2019 - Jul 2020
         Details:
-          - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          - Nisl tincidunt eget nullam non nisi est
-          - Sed viverra tellus in hac.
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Badges: ['Python', 'HTML', 'CSS', 'C#/Unity']
-  - Employer: Institute of Neural Engineering
-    Place: Graz, AT
-    Class: "experience__extra_padding"
+          - Management of the `connected services' B2B automotive portfolio
+          - Internal product expert and drive product development
+        Badges: ['Market analysis', 'Pricing', 'Stakeholder management']     
+  - Employer: Roland Berger
+    Place: Amsterdam, NL
     Positions:
-      - Title: Master's Thesis Research Intern
-        Date: Oct 2016 - Jun 2017
+      - Title: Strategy consultant
+        Date: Jan 2016 - Sep 2018
         Details:
-          - Arcu vitae elementum curabitur vitae nunc sed velit
-          - Viverra aliquet eget sit amet tellus cras adipiscing
-          - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          - Nisl tincidunt eget nullam non nisi est
-        Badges: ['Python', 'MATLAB', 'Data Processing', 'Paradigm Design']
+          - Own a module of a strategic advice for board level executives
+          - Projects in diverse industries, such as (sustainable) energy and food
+        Badges: ['Storylining', 'Structure complex problems', 'Client communication', 'Business modelling']
 
 Education:
-  - Course: BSc & MSc in Biomedical Engineering and Biophysics
-    Place: University of Lisbon
-    Date: Sep 2012 - Nov 2017
-    Details: Specialised in data analysis
+  - University: University of Amsterdam
+    Place: Amsterdam, NL
+    Courses: 
+    - Title: MSc Information studies    
+      Date: sep '20 - juli '21
+      Details: 
+        - Data Science track
+        - GPA 8.3/10 (with distinction)
+  - University: Eindhoven University of Technology
+    Place: Eindhoven, NL
+    Courses:
+    - Title: MSc Mechanical Engineering
+      Date:  sep '12 - oct '15
+      Details: 
+        - Control Systems Technology track
+        - GPA 7.0/10
+    - Title: BSc Mechanical Engineering
+      Date:  sep '12 - oct '15
+      Details: 
+        - GPA introductory year 8.4/10 (with distinction)
+        - Overall GPA 7.4/10
 
 Skills:
   - Family: Programming
