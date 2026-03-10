@@ -23,10 +23,10 @@ Experience:
         Date: Dec 2021 - Present
         Details:
           - Computational text analysis with LLM-assistance
-          - Computer vision for satellite image analysis
-          - Semantic search for dutch policy documents
-          - Data ingestion pipeline (ELT) with CI/CD 
-        Badges: ['Python', 'Spark', 'Databricks', 'NLP', 'Computer vision', 'ELT' ,'CI/CD']
+          - Object segmentation on aerial images
+          - Semantic search on dutch policy documents
+          - Data ingestion pipeline to data lakehouse 
+        Badges: ['Data science', 'Machine learning' ,'NLP', 'Computer vision', 'Data engineering', 'Linked data', 'ELT', 'CI/CD']
   - Employer: TomTom
     Place: Amsterdam, NL
     Positions:
@@ -51,7 +51,7 @@ Education:
     Place: Amsterdam, NL
     Courses: 
     - Title: MSc Information studies    
-      Date: sep '20 - juli '21
+      Date: Sep '20 - Juli '21
       Details: 
         - Data Science track
         - GPA 8.3/10 (with distinction)
@@ -59,12 +59,12 @@ Education:
     Place: Eindhoven, NL
     Courses:
     - Title: MSc Mechanical Engineering
-      Date:  sep '12 - oct '15
+      Date:  Sep '12 - Oct '15
       Details: 
         - Control Systems Technology track
         - GPA 7.0/10
     - Title: BSc Mechanical Engineering
-      Date:  sep '12 - oct '15
+      Date:  Sep '08 - Aug '12
       Details: 
         - GPA introductory year 8.4/10 (with distinction)
         - Overall GPA 7.4/10
@@ -75,13 +75,22 @@ Skills:
       - Python
       - SQL
       - Bash
+      - R
+      - Java
   - Family: Frameworks
     Items:
+      - Apache Spark
+      - Pytorch
+      - MLFlow
+      - LangChain
       - Flask
       - Hugo
   - Family: Developer Tools
     Items:
       - Git
+      - Github
+      - Github actions
+      - Databricks asset bundles
       - Docker
 
 Languages:
@@ -90,9 +99,12 @@ Languages:
   - Name: English
     Level: Fluent
 
-Diplomas:
-  - ISTQB Tester Certification (2019)
-  - English Cambridge CAE (2009)
+Others:
+  - Certificate Technology Management - Eindhoven University of Technology (2014)
+  - International exchange - Doshisha University Japan (2014)
+  - Full-time board year - Student association E.S.C. (2012)
+  - Honors Program - Eindhoven University of Technology (2011)
+  - National Olympics of physics - 11th in national ranking (2008)
 
 Interests:
   - Cycling
