@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blowfish</title>
+    <title>Home</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on Blowfish</description>
+    <description>Recent content on Home</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>robzwitserlood@tuta.io (Rob Zwitserlood)</managingEditor>
     <webMaster>robzwitserlood@tuta.io (Rob Zwitserlood)</webMaster>
-    <copyright>© 2025 Rob Zwitserlood</copyright>
-    <lastBuildDate>Wed, 19 Nov 2025 21:53:53 +0100</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 Rob Zwitserlood</copyright>
+    <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About me</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/about/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>How I deployed this website</title>
+      <link>http://localhost:1313/post/2026-01-01-this-website/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/post/2026-01-01-this-website/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Resume</title>
@@ -22,31 +42,11 @@
     </item>
     
     <item>
-      <title>About me</title>
-      <link>http://localhost:1313/post/2021-01-01-thesis/</link>
-      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
-      <guid>http://localhost:1313/post/2021-01-01-thesis/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title></title>
       <link>http://localhost:1313/cv/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
       <guid>http://localhost:1313/cv/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>About me</title>
-      <link>http://localhost:1313/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
-      <guid>http://localhost:1313/about/</guid>
       <description></description>
       
     </item>

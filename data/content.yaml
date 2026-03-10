@@ -1,137 +1,115 @@
 BasicInfo:
   FirstName: Rob
   LastName: Zwitserlood
-  Photo: img/avatar.jpg
   Contacts:
     - Icon: fas fa-phone
-      Info: +44 123 456 789
+      Info: +31 6 28 06 16 95
     - Icon: fas fa-envelope
-      Info: contact@ines-almeida.com
+      Info: <a class="contact__link" href="mailto:robzwitserlood@tuta.io" target="_blank">robzwitserlood@tuta.io</a>
     - Icon: fas fa-globe
-      Info: <a class="contact__link" href="https://ines-almeida.com" target="_blank">ines-almeida.com</a>
+      Info: <a class="contact__link" href="https://robzwitserlood.s3-website.nl-ams.scw.cloud/" target="_blank">Personal website</a>
+    - Icon: fas fa-solid fa-code
+      Info: <a class="contact__link" href="https://github.com/robzwitserlood" target="_blank">Github</a>
     - Icon: fas fa-map-marker-alt
-      Info: Portugal
+      Info: Heiloo, The Netherlands
 
-Profile: "[url](/about)"
+Profile: "I like to treat ['AI as normal technology'](https://knightcolumbia.org/content/ai-as-normal-technology) — it's highly transformative but no separate species. As an AI expert with 4+ years of experience in Data Science and 3+ years in business roles, my strengths include analytical thinking, a deep understanding of AI models and a structured approach to problem-solving. My aim is to expand my expertise in data and AI engineering, mastering the full suite of skills to drive impactful solutions."
 
 Experience:
-  - Employer: Super Cool Company
-    Place: Oxford, UK
+  - Employer: The Netherlands Environmental Assessment Agency
+    Place: The Hague, NL
     Positions:
-      - Title: Software Engineer
-        Date: Jan 2020 - Present
+      - Title: Data Scientist
+        Date: Dec 2021 - Present
         Details:
-          - Arcu vitae elementum curabitur vitae nunc sed velit
-          - Viverra aliquet eget sit amet tellus cras adipiscing
-          - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          - Nisl tincidunt eget nullam non nisi est
-          - Sed viverra tellus in hac.
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Badges: ['Python', 'Django', 'OOP', 'Javascript', 'HTML', 'CSS', 'Agile']
-      - Title: Software Tester
-        Date: Mar 2019 - Jan 2020
-        Details:
-          - Nisl tincidunt eget nullam non nisi est
-          - Sed viverra tellus in hac.
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Badges: ['Python', 'BDD', 'Selenium', 'OOP', 'Agile']
-  - Employer: Another super cool company
-    Place: Lisbon, PT
+          - Computational text analysis with LLM-assistance
+          - Object segmentation on aerial images
+          - Semantic search on dutch policy documents
+          - Data ingestion pipeline to data lakehouse 
+        Badges: ['Data science', 'Machine learning' ,'NLP', 'Computer vision', 'Data engineering', 'Linked data', 'ELT', 'CI/CD']
+  - Employer: TomTom
+    Place: Amsterdam, NL
     Positions:
-      - Title: Flow Cytometry Resource Specialist
-        Date: Jan 2018 - Mar 2019
+      - Title: Product marketing manager
+        Date: Apr 2019 - Jul 2020
         Details:
-          - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          - Nisl tincidunt eget nullam non nisi est
-          - Sed viverra tellus in hac.
-          - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        Badges: ['Python', 'HTML', 'CSS', 'C#/Unity']
-  - Employer: Institute of Neural Engineering
-    Place: Graz, AT
-    Class: "experience__extra_padding"
+          - Management of the `connected services' B2B automotive portfolio
+          - Internal product expert and drive product development
+        Badges: ['Market analysis', 'Pricing', 'Stakeholder management']     
+  - Employer: Roland Berger
+    Place: Amsterdam, NL
     Positions:
-      - Title: Master's Thesis Research Intern
-        Date: Oct 2016 - Jun 2017
+      - Title: Strategy consultant
+        Date: Jan 2016 - Sep 2018
         Details:
-          - Arcu vitae elementum curabitur vitae nunc sed velit
-          - Viverra aliquet eget sit amet tellus cras adipiscing
-          - Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-          - Nisl tincidunt eget nullam non nisi est
-        Badges: ['Python', 'MATLAB', 'Data Processing', 'Paradigm Design']
+          - Own a module of a strategic advice for board level executives
+          - Projects in diverse industries, such as (sustainable) energy and food
+        Badges: ['Story lining', 'Structure complex problems', 'Client communication', 'Business modelling']
 
 Education:
-  - Course: BSc & MSc in Biomedical Engineering and Biophysics
-    Place: University of Lisbon
-    Date: Sep 2012 - Nov 2017
-    Details: Specialised in data analysis
-
-References:
-  - Name: Person One
-    Relation: Co-worker at Super Cool Company
-    Contacts:
-    - Icon: fas fa-phone
-      Info: +44 123 456 790
-    - Icon: fas fa-envelope
-      Info: contact@person-one.com
-    - Icon: fas fa-map-marker-alt
-      Info: Melbourne, Australia
-  - Name: Person Two
-    Relation: Boss at Super Cool Company
-    Contacts:
-    - Icon: fas fa-phone
-      Info: +44 123 456 791
-    - Icon: fas fa-envelope
-      Info: contact@person-two.com
-    - Icon: fas fa-map-marker-alt
-      Info: Sydney, Australia
+  - University: University of Amsterdam
+    Place: Amsterdam, NL
+    Courses: 
+    - Title: MSc Information studies    
+      Date: Sep 2020 - Jul 2021
+      Details: 
+        - Data Science track
+        - GPA 8.3/10 (with distinction)
+  - University: Eindhoven University of Technology
+    Place: Eindhoven, NL
+    Courses:
+    - Title: MSc Mechanical Engineering
+      Date:  Sep 2012 - Oct 2015
+      Details: 
+        - Control Systems Technology track
+        - GPA 7.0/10
+    - Title: BSc Mechanical Engineering
+      Date:  Sep 2008 - Aug 2012
+      Details: 
+        - GPA introductory year 8.4/10 (with distinction)
+        - Overall GPA 7.4/10
 
 Skills:
   - Family: Programming
     Items:
       - Python
-      - HTML (including Jinja)
-      - Javascript
-      - CSS
-      - SASS
       - SQL
-      - C#
       - Bash
-      - MATLAB
+      - R
+      - Java
   - Family: Frameworks
     Items:
-      - Django
+      - Apache Spark
+      - Pytorch
+      - MLFlow
+      - LangChain
       - Flask
       - Hugo
-      - React
   - Family: Developer Tools
     Items:
       - Git
+      - Github
+      - Github actions
+      - Databricks asset bundles
       - Docker
-      - Jenkins
-      - AWS
-  - Family: Misc
-    Items:
-      - Adobe Tools
-      - LaTeX
 
 Languages:
-  - Name: Portuguese
+  - Name: Dutch
     Level: Native
   - Name: English
-    Level: C2
-  - Name: Spanish
-    Level: B1
-  - Name: German
-    Level: B1
+    Level: Fluent
 
-Diplomas:
-  - ISTQB Tester Certification (2019)
-  - English Cambridge CAE (2009)
+Others:
+  - Certificate Technology Management - Eindhoven University of Technology (2014)
+  - International exchange - Doshisha University Japan (2014)
+  - Full-time board year - Student association E.S.C. (2012)
+  - Honors Program - Eindhoven University of Technology (2011)
+  - National Olympics of physics - 11th in national ranking (2008)
 
 Interests:
-  - Bouldering
-  - Cooking
-  - Windsurfing
-  - Bossa Nova
-  - Design
-  - Languages
+  - Cycling
+  - Mountainbiking
+  - Tennis
+  - Kitesurfing
+  - Running
+  - Yin yoga
