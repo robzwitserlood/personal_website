@@ -1,18 +1,19 @@
 BasicInfo:
   FirstName: Rob
   LastName: Zwitserlood
-  Photo: img/avatar.jpg
   Contacts:
     - Icon: fas fa-phone
       Info: +31 6 28 06 16 95
     - Icon: fas fa-envelope
-      Info: robzwitserlood@tuta.io
+      Info: <a class="contact__link" href="mailto:robzwitserlood@tuta.io" target="_blank">robzwitserlood@tuta.io</a>
     - Icon: fas fa-globe
       Info: <a class="contact__link" href="https://robzwitserlood.s3-website.nl-ams.scw.cloud/" target="_blank">Personal website</a>
+    - Icon: fas fa-solid fa-code
+      Info: <a class="contact__link" href="https://github.com/robzwitserlood" target="_blank">Github</a>
     - Icon: fas fa-map-marker-alt
       Info: Heiloo, The Netherlands
 
-Profile: "'AI as normal technology', this is how I approach my work nowadays. I'm a AI expert with 4+ years experience in Data Science and 3+ years experience in business roles. My talents are analitycal abilities, deep understanding and ...v. My ambition is to master the full sweet of data and AI skills, in my next job I hope to develop data and AI engineering."
+Profile: "I articulate ['AI as normal technology'](https://knightcolumbia.org/content/ai-as-normal-technology) — highly transformative but no seperate species. As an AI expert with 4+ years of experience in Data Science and 3+ years in business roles, my strengths include analytical thinking, a deep understanding of AI models, and a structured approach to problem-solving. My aim is to expand my expertise in data and AI engineering, mastering the full suite of skills to drive impactful solutions."
 
 Experience:
   - Employer: The Netherlands Environmental Assessment Agency
@@ -25,7 +26,7 @@ Experience:
           - CI/CD on data ingestion pipeline 
           - Vector search for dutch policy documents
           - Text analysis with semantic embeddings
-        Badges: ['Python', 'Spark', 'Databricks', 'AWS', 'CI/CD']
+        Badges: ['Python', 'Spark', 'Databricks', 'NLP', 'Computer vision', 'ELT' ,'CI/CD']
   - Employer: TomTom
     Place: Amsterdam, NL
     Positions:

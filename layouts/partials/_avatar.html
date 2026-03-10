@@ -1,7 +1,6 @@
-{{ if .BasicInfo.Photo }}
-    <div class="sideSection avatar">
-        <div class="avatar__container">
-            <img class="avatar__img" src="{{ .BasicInfo.Photo }}" alt="photo of me">
-        </div>
+{{ $image := resources.Get "images/avatar_rob.jpg" }}
+<div class="sideSection avatar">
+    <div class="avatar__container">
+        <img class="avatar__img" src="{{ $image.RelPermalink }}" alt="photo of me">
     </div>
-{{ end }}
+</div>
