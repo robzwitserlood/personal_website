@@ -22,10 +22,10 @@ Experience:
       - Title: Data Scientist
         Date: Dec 2021 - Present
         Details:
+          - Computational text analysis with LLM-assistance
           - Computer vision for satellite image analysis
-          - CI/CD on data ingestion pipeline 
-          - Vector search for dutch policy documents
-          - Text analysis with semantic embeddings
+          - Semantic search for dutch policy documents
+          - Data ingestion pipeline (ELT) with CI/CD 
         Badges: ['Python', 'Spark', 'Databricks', 'NLP', 'Computer vision', 'ELT' ,'CI/CD']
   - Employer: TomTom
     Place: Amsterdam, NL
