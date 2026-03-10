@@ -734,26 +734,7 @@
     target="_blank"
   >Blowfish theme</a> for Hugo, which provides a clean and simple design for my website.</p>
 <p>The most interesting part for me is the CI/CD pipeline that I set up using GitHub Actions. Whenever I push changes to the main branch, GitHub Actions automatically builds the website using Hugo and deploys it to Object Storage. This way, I can focus on creating content without worrying about the deployment process. The code snippet for the GitHub Actions workflow looks like this:</p>
-
-
-
-
-
-
-
-  
-  
-
-  
-    
-  
-
-  
-
-  
-  
-  
-  <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and Deploy Hugo</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and Deploy Hugo</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
@@ -796,9 +777,6 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo deploy --force --maxDeletes -1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
 </span></span></span></code></pre></div>
-
-
-
           
           
           
