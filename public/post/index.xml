@@ -9,7 +9,17 @@
     <managingEditor>robzwitserlood@tuta.io (Rob Zwitserlood)</managingEditor>
     <webMaster>robzwitserlood@tuta.io (Rob Zwitserlood)</webMaster>
     <copyright>© 2026 Rob Zwitserlood</copyright>
-    <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Can AI find what keyword search can&#39;t? A pilot on Dutch policy documents</title>
+      <link>http://localhost:1313/post/2026-04-13-ai-search-pilot/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/post/2026-04-13-ai-search-pilot/</guid>
+      <description>We built an AI-powered search engine to help PBL researchers find agricultural subsidy documents buried in hundreds of thousands of Dutch policy publications. Here&amp;rsquo;s what worked, what didn&amp;rsquo;t, and what surprised us.</description>
+      
+    </item>
     
     <item>
       <title>How I deployed this website</title>
@@ -17,6 +27,16 @@
       <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
       <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
       <guid>http://localhost:1313/post/2026-01-01-this-website/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Object segmentation on aerial images</title>
+      <link>http://localhost:1313/post/object-segmentation/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/post/object-segmentation/</guid>
       <description></description>
       
     </item>

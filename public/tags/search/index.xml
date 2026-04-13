@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Search on Home</title>
+    <link>http://localhost:1313/tags/search/</link>
+    <description>Recent content in Search on Home</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>robzwitserlood@tuta.io (Rob Zwitserlood)</managingEditor>
+    <webMaster>robzwitserlood@tuta.io (Rob Zwitserlood)</webMaster>
+    <copyright>© 2026 Rob Zwitserlood</copyright>
+    <lastBuildDate>Mon, 13 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/search/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Can AI find what keyword search can&#39;t? A pilot on Dutch policy documents</title>
+      <link>http://localhost:1313/post/2026-04-13-ai-search-pilot/</link>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 +0000</pubDate>
+      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/post/2026-04-13-ai-search-pilot/</guid>
+      <description>We built an AI-powered search engine to help PBL researchers find agricultural subsidy documents buried in hundreds of thousands of Dutch policy publications. Here&amp;rsquo;s what worked, what didn&amp;rsquo;t, and what surprised us.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
