@@ -13,7 +13,7 @@ BasicInfo:
     - Icon: fas fa-map-marker-alt
       Info: Heiloo, The Netherlands
 
-Profile: "I like to treat ['AI as normal technology'](https://knightcolumbia.org/content/ai-as-normal-technology): it's highly transformative but no separate species. As an AI expert with 4+ years of experience in Data Science and 3+ years in business roles, my strengths include analytical thinking, a deep understanding of AI models and a structured approach to problem-solving. My aim is to expand my expertise in data and AI engineering, thereby mastering the full suite of skills to drive impactful solutions."
+Profile: "As an AI expert with 4+ years of experience in Data Science and 3+ years in business roles, my strengths include analytical thinking, a deep understanding of AI models and a structured approach to problem-solving. My aim is to expand my expertise in data and AI engineering, thereby mastering the full suite of skills to drive impactful solutions."
 
 Experience:
   - Employer: The Netherlands Environmental Assessment Agency
@@ -82,6 +82,7 @@ Skills:
       - Apache Spark
       - Pytorch
       - MLFlow
+      - DSPy
       - LangChain
       - Flask
       - Hugo
