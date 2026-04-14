@@ -1,6 +1,6 @@
 ---
 title: "Can AI find what keyword search can't? A pilot on Dutch policy documents"
-draft: false
+draft: true
 date: 2026-04-13
 tags: ["nlp", "search", "machine-learning", "python", "dutch"]
 summary: "We built an AI-powered search engine to help PBL researchers find agricultural subsidy documents buried in hundreds of thousands of Dutch policy publications. Here's what worked, what didn't, and what surprised us."
