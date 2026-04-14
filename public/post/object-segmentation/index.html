@@ -223,7 +223,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "497"
+    "wordCount": "1104"
   }]
   </script>
 
@@ -335,24 +335,6 @@
   
     <p class="text-base font-medium">
       Posts
-    </p>
-  
-</a>
-
-
-
-      
-        
-  <a
-  href="/resume/"
-  
-  class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
-  aria-label="Resume"
-  title="Resume">
-  
-  
-    <p class="text-base font-medium">
-      Resume
     </p>
   
 </a>
@@ -497,26 +479,6 @@
 
 
             
-              
-  <li class="mt-1">
-  <a
-    href="/resume/"
-    
-    class="flex items-center hover:text-primary-600 dark:hover:text-primary-400"
-    aria-label="Resume"
-    title="Resume">
-    
-    
-      <p class="text-bg font-bg">
-        Resume
-      </p>
-    
-  </a>
-</li>
-
-
-
-            
 
           </ul>
           
@@ -596,7 +558,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2021-01-01T00:00:00&#43;00:00">1 January 2021</time><span class="px-2 text-primary-500">&middot;</span><span>497 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+      <time datetime="2021-01-01T00:00:00&#43;00:00">1 January 2021</time><span class="px-2 text-primary-500">&middot;</span><span>1104 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
     
 
     
@@ -729,53 +691,106 @@
     </span>
     
 </h2>
-<p>Cities are getting hotter and wetter. Urban planners and climate scientists know that impervious surfaces—roads, rooftops, parking lots—are a big part of the problem. But there’s no complete dataset that tells us which surfaces in a city are truly impervious. So, can we use satellite and aerial imagery to fill this gap using machine learning? That’s the question we set out to answer.</p>
+<p>Cities are getting hotter and wetter. Urban planners and climate scientists know that impervious surfaces—roads, rooftops, parking lots—are a big part of the problem. But there&rsquo;s no complete dataset that tells us which surfaces in a city are truly impervious. So, can we use aerial imagery to fill this gap using machine learning? That&rsquo;s the question we set out to answer.</p>
 <hr>
 
-<h2 class="relative group">Technical Journey: From Data to Model
-    <div id="technical-journey-from-data-to-model" class="anchor"></div>
+<h2 class="relative group">Data Pipeline
+    <div id="data-pipeline" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#technical-journey-from-data-to-model" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#data-pipeline" aria-label="Anchor">#</a>
     </span>
     
 </h2>
 
-<h3 class="relative group">Data
-    <div id="data" class="anchor"></div>
+<h3 class="relative group">Acquisition
+    <div id="acquisition" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#data" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#acquisition" aria-label="Anchor">#</a>
     </span>
     
 </h3>
+<p>Data came from three different sources, each accessed via a different protocol:</p>
 <ul>
-<li><strong>Ground truth:</strong> We used the Dutch BGT dataset (Basisregistratie Grootschalige Topografie) to extract hard labels for impervious and non-impervious surfaces.</li>
-<li><strong>Imagery:</strong> Two sources: satellite images at 50cm resolution and aerial photos at 7.5cm.</li>
-<li><strong>Preparation:</strong> Images were tiled, clouds were excluded, and everything was stored in HDF5 format for fast access during training.</li>
+<li><strong>BGT ground truth</strong> (Dutch Basisregistratie Grootschalige Topografie) — retrieved via a two-step HTTP API: POST a spatial query to receive a <code>downloadRequestId</code>, poll until status is <code>COMPLETED</code>, then fetch the download link.</li>
+<li><strong>Administrative boundaries</strong> — fetched via WFS (Web Feature Service) from PDOK&rsquo;s <code>bestuurlijkegebieden</code> and <code>wijkenbuurten</code> layers, returned as GML.</li>
+<li><strong>Aerial imagery</strong> — 2022 orthophotos at 7.5 cm resolution, downloaded via WMTS at zoom level 12 using 16 concurrent workers for parallel tile fetching.</li>
 </ul>
+
+<h3 class="relative group">Spatial Data Management with PostGIS
+    <div id="spatial-data-management-with-postgis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#spatial-data-management-with-postgis" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Raw metadata lives in a PostgreSQL + PostGIS database with a schema of three spatial dimension tables:</p>
+<ul>
+<li><code>dimImageFiles</code> — catalogs source imagery files with bounding boxes and WKT geometry representations</li>
+<li><code>dimTiles</code> — stores a grid of 256×256 pixel tiles covering the target region, indexed by row/column coordinates</li>
+<li><code>dimGroundTruth</code> — contains labeled ground features from the BGT layers</li>
+</ul>
+<p>Spatial intersection queries match ground truth geometries to tiles via a <code>factTilesGroundTruth</code> junction table. Where BGT polygons overlap (e.g. a road running through a garden), a set difference operation resolves the conflict before rasterization:</p>
+<p>The database runs in Docker (<code>postgis/postgis:16-3.4</code>), with health checks via <code>pg_isready</code> and schema initialization scripts in <code>./docker/initdb</code>.</p>
+
+<h3 class="relative group">Tiling &amp; Preprocessing
+    <div id="tiling--preprocessing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tiling--preprocessing" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Imagery is snapped to a 1 km grid, then cut into uniform 256×256 pixel tiles aligned to the underlying GeoTIFF structure. Tiles that span multiple source images are stitched by extracting four quadrants and concatenating them into a single array. Output is LZW-compressed GeoTIFF in EPSG:28992.</p>
 <figure>
-    <img src="data-prep.jpg" alt="Alt text" />
-    <figcaption>Data preparation process</figcaption>
+    <img src="data-prep.jpg" alt="Data preparation process" />
+    <figcaption>Data preparation process: spatial querying, tiling, and rasterization</figcaption>
 </figure>
 
-<h3 class="relative group">Methodology
-    <div id="methodology" class="anchor"></div>
+<h3 class="relative group">Rasterization
+    <div id="rasterization" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#methodology" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#rasterization" aria-label="Anchor">#</a>
     </span>
     
 </h3>
+<p>For each tile, PostGIS is queried for intersecting BGT features. Overlapping geometries are resolved, then the resulting polygons are rasterized into a single-band label mask:</p>
 <ul>
-<li><strong>Extraction:</strong> We mapped BGT geometries to “completely impervious” and “completely non-impervious” classes.</li>
-<li><strong>Segmentation:</strong> The problem was framed as semi-supervised, multi-class image segmentation.</li>
+<li><strong>0</strong> — Impervious (roads, buildings, tunnels)</li>
+<li><strong>1</strong> — Pervious (vegetation, water, sand)</li>
+<li><strong>2</strong> — Unknown (transitional or partially paved surfaces)</li>
 </ul>
+<p>Unknown areas are filled with label ID 2 and excluded from gradient updates during training since the objective is to predict only impervious and pervious surfaces.</p>
+<hr>
 
-<h3 class="relative group">Modeling
+<h2 class="relative group">Dataset &amp; Fast Loading
+    <div id="dataset--fast-loading" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#dataset--fast-loading" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The tiled imagery and label masks are serialized into HDF5 files. Each file holds three datasets:</p>
+<ul>
+<li><code>rgb</code> — input imagery (3 bands, 256×256 pixels)</li>
+<li><code>gt</code> — ground truth raster (single band, uint8)</li>
+<li><code>pred</code> — placeholder for model predictions at inference time</li>
+</ul>
+<p>A custom class inheriting from <code>torch.utils.data.Dataset</code> wraps these files for use with PyTorch&rsquo;s DataLoader. Loading directly from HDF5 avoids repeatedly decoding compressed images and keeps I/O from becoming the training bottleneck.</p>
+<p>Before training, tiles are partitioned 80/10/10 into train, validation, and test sets. The split is stratified across five dimensions — impervious percentage, pervious percentage, unknown percentage, and two entropy metrics — binned into five quantiles each. This ensures the class distribution is balanced across all three splits rather than relying on a purely random shuffle.</p>
+<hr>
+
+<h2 class="relative group">Modeling
     <div id="modeling" class="anchor"></div>
     
     <span
@@ -783,15 +798,80 @@
         <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#modeling" aria-label="Anchor">#</a>
     </span>
     
+</h2>
+
+<h3 class="relative group">Architecture
+    <div id="architecture" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#architecture" aria-label="Anchor">#</a>
+    </span>
+    
 </h3>
+<p>The model is a U-Net with a ResNet50 encoder initialized from ImageNet pretrained weights, built with <code>segmentation-models-pytorch</code>. The decoder follows the standard U-Net design, with a softmax output over three classes.</p>
+
+<h3 class="relative group">Three-Phase Progressive Unfreezing
+    <div id="three-phase-progressive-unfreezing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#three-phase-progressive-unfreezing" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Training the full network from scratch risks corrupting the pretrained encoder weights early on. Instead, parameters are unfrozen in three phases, with the learning rate stepped down at each stage:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Phase</th>
+          <th>Trainable components</th>
+          <th>Learning rate</th>
+          <th>Epochs</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Segmentation head only</td>
+          <td>0.001</td>
+          <td>3</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Decoder + head</td>
+          <td>0.0001</td>
+          <td>3</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Full network</td>
+          <td>0.00001</td>
+          <td>3</td>
+      </tr>
+  </tbody>
+</table>
+<p>A <code>set_parameter_requires_grad()</code> helper enables and disables gradient computation per module between phases. The best checkpoint is saved whenever validation F1 improves.</p>
+
+<h3 class="relative group">Loss &amp; Optimization
+    <div id="loss--optimization" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#loss--optimization" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The following configuration was used across all three training phases:</p>
 <ul>
-<li><strong>Architecture:</strong> U-net, a neural network designed for image segmentation, initialized with pre-trained ImageNet weights.</li>
-<li><strong>Training:</strong> Three phases—first the classification head, then the decoder, then the full model. Weighted cross-entropy loss (with class weights set by data distribution), Adam optimizer, and a learning rate scheduler.</li>
-<li><strong>Data split:</strong> 80% training, 10% validation, 10% test—randomly split at the tile level.</li>
+<li><strong>Loss:</strong> Weighted <code>CrossEntropyLoss</code> with class weights <code>[0.625, 0.375, 0.0]</code>. Setting the unknown class weight to zero means those pixels contribute no gradient signal — the model learns only from confidently labeled surfaces.</li>
+<li><strong>Optimizer:</strong> Adam</li>
+<li><strong>LR scheduler:</strong> <code>ReduceLROnPlateau</code> — reduces the learning rate by a factor of 0.2 after one epoch without improvement in macro F1 (threshold 0.01).</li>
+<li><strong>Evaluation metric:</strong> Macro F1 on classes 0 and 1 only (unknown surfaces excluded).</li>
 </ul>
 <figure>
-    <img src="train-process.jpg" alt="Alt text" />
-    <figcaption>Three-phases training process for aerial imagery</figcaption>
+    <img src="train-process.jpg" alt="Three-phase training process" />
+    <figcaption>Three-phase progressive unfreezing: head → decoder → full network</figcaption>
 </figure>
 <hr>
 
@@ -814,10 +894,7 @@
     </span>
     
 </h3>
-<ul>
-<li>The model achieved high recall: 90% for satellite imagery, 96% for aerial imagery. These results are on par with recent literature.</li>
-<li>However, recall varied by region and class distribution—spatial consistency remains a challenge.</li>
-</ul>
+<p>The model achieved 96% recall — on par with recent literature. Confusion matrices for the training and validation splits are below. The unknown class is not represented in the predictions as expected given its zero class weight during training.</p>
 <table>
   <thead>
     <tr>
@@ -885,38 +962,6 @@
 <table>
   <thead>
     <tr>
-      <th colspan="5">Test set</th>
-    </tr>
-    <tr>
-      <th></th><th></th>
-      <th colspan="3">prediction</th>
-    </tr>
-    <tr>
-      <th></th><th></th>
-      <th>volledig verhard</th>
-      <th>volledig onverhard</th>
-      <th>onbekend</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="3"><strong>ground truth</strong></td>
-      <td>volledig verhard</td>
-      <td></td><td></td><td></td>
-    </tr>
-    <tr>
-      <td>volledig onverhard</td>
-      <td></td><td></td><td></td>
-    </tr>
-    <tr>
-      <td>onbekend</td>
-      <td></td><td></td><td></td>
-    </tr>
-  </tbody>
-</table>
-<table>
-  <thead>
-    <tr>
       <th colspan="5">City center</th>
     </tr>
     <tr>
@@ -946,38 +991,7 @@
     </tr>
   </tbody>
 </table>
-<table>
-  <thead>
-    <tr>
-      <th colspan="5">Suburban area</th>
-    </tr>
-    <tr>
-      <th></th><th></th>
-      <th colspan="3">prediction</th>
-    </tr>
-    <tr>
-      <th></th><th></th>
-      <th>volledig verhard</th>
-      <th>volledig onverhard</th>
-      <th>onbekend</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="3"><strong>ground truth</strong></td>
-      <td>volledig verhard</td>
-      <td></td><td></td><td></td>
-    </tr>
-    <tr>
-      <td>volledig onverhard</td>
-      <td></td><td></td><td></td>
-    </tr>
-    <tr>
-      <td>onbekend</td>
-      <td></td><td></td><td></td>
-    </tr>
-  </tbody>
-</table>
+<p>Recall varied by region and class distribution — spatial consistency remains a challenge.</p>
 
 <h3 class="relative group">Micro Evaluation
     <div id="micro-evaluation" class="anchor"></div>
@@ -988,20 +1002,18 @@
     </span>
     
 </h3>
-<ul>
-<li>Visual inspection showed strong generalization for roads, but weak performance in backyards. The model also successfully identified non-vegetated, non-impervious surfaces—something vegetation indices can’t do.</li>
-</ul>
+<p>Visual inspection revealed where the model generalizes well and where it struggles. Roads and their immediate surroundings were classified reliably, and the model correctly identified non-vegetated, pervious surfaces — something a simple vegetation index cannot do. Backyards, however, showed poor performance: the mix of paving, gravel, and vegetation in private gardens is difficult to distinguish since they are not present in the training data.</p>
 <figure>
-    <img src="generalization-road-surroundings.jpg" alt="Alt text" />
-    <figcaption>Good generalization for roads and surroundings (Green: pervious, purple: impervious, yellow: unknown)</figcaption>
+    <img src="generalization-road-surroundings.jpg" alt="Good generalization for roads and surroundings" />
+    <figcaption>Good generalization for roads and surroundings (green: pervious, purple: impervious, yellow: unknown)</figcaption>
 </figure>
 <figure>
-    <img src="generalization-backyards.jpg" alt="Alt text" />
-    <figcaption>Poor generalization for backyards (Green: pervious, purple: impervious, yellow: unknown)</figcaption>
+    <img src="generalization-backyards.jpg" alt="Poor generalization for backyards" />
+    <figcaption>Poor generalization for backyards (green: pervious, purple: impervious, yellow: unknown)</figcaption>
 </figure>
----
+<hr>
 
-<h2 class="relative group">Lessons Learned &amp; What’s Next
+<h2 class="relative group">Lessons Learned &amp; What&rsquo;s Next
     <div id="lessons-learned--whats-next" class="anchor"></div>
     
     <span
@@ -1011,9 +1023,9 @@
     
 </h2>
 <ul>
-<li>Domain expertise is valuable for refining ground truth, but the technical pipeline is robust and reproducible.</li>
-<li>Binary segmentation is a solid starting point. Future work could explore soft labels, region-based loss functions, or attention mechanisms to improve spatial consistency and generalization.</li>
-<li>Generalization remains a challenge—further research is needed on stratification and simulation approaches.</li>
+<li>The PostGIS + HDF5 split — spatial metadata in the database, bulk raster data in files — kept queries fast without sacrificing storage efficiency. That separation of concerns is worth reusing in any geo-ML project.</li>
+<li>Progressive unfreezing was essential. Training the head alone first let the randomly initialized classifier settle before the pretrained encoder weights were exposed to gradients.</li>
+<li>Generalization to public spaces, which are not present in the training data, remains the main open problem. Stratified splitting helped, but more granular region-based loss functions or attention mechanisms could push performance further in spatially heterogeneous areas.</li>
 </ul>
 <hr>
 
@@ -1026,7 +1038,7 @@
     </span>
     
 </h2>
-<p>This pilot shows that with open data and modern computer vision, we can make real progress in mapping urban imperviousness. The approach isn’t perfect—domain expertise and more sophisticated models could push it further—but it’s a strong foundation for future work.</p>
+<p>This project shows that with open data and modern computer vision, we can make real progress in mapping urban imperviousness. The pipeline — from multi-protocol data acquisition and PostGIS-backed spatial indexing, through stratified HDF5 dataset splitting, to progressive U-Net fine-tuning — is reproducible and extensible. The approach isn&rsquo;t perfect, but it&rsquo;s a strong foundation for future work.</p>
 
           
           
