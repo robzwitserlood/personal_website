@@ -15,8 +15,8 @@
 
   
   
-    <title>How I deployed this website &middot; Home</title>
-    <meta name="title" content="How I deployed this website &middot; Home">
+    <title>Estimating the carbon footprint of Dutch recipes &middot; Home</title>
+    <meta name="title" content="Estimating the carbon footprint of Dutch recipes &middot; Home">
   
 
   
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/post/2026-01-01-this-website/">
+  <link rel="canonical" href="http://localhost:1313/post/recipe-sustainability/">
   
 
   
@@ -46,18 +46,18 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/post/2026-01-01-this-website/">
+  <meta property="og:url" content="http://localhost:1313/post/recipe-sustainability/">
   <meta property="og:site_name" content="Home">
-  <meta property="og:title" content="How I deployed this website">
+  <meta property="og:title" content="Estimating the carbon footprint of Dutch recipes">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2026-01-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-01-01T00:00:00+00:00">
+    <meta property="article:published_time" content="2021-05-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-05-01T00:00:00+00:00">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="How I deployed this website">
+  <meta name="twitter:title" content="Estimating the carbon footprint of Dutch recipes">
 
   
   
@@ -204,26 +204,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "How I deployed this website",
-    "headline": "How I deployed this website",
+    "name": "Estimating the carbon footprint of Dutch recipes",
+    "headline": "Estimating the carbon footprint of Dutch recipes",
     
     
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/post\/2026-01-01-this-website\/",
+    "url" : "http:\/\/localhost:1313\/post\/recipe-sustainability\/",
     "author" : {
       "@type": "Person",
       "name": "Rob Zwitserlood"
     },
-    "copyrightYear": "2026",
-    "dateCreated": "2026-01-01T00:00:00\u002b00:00",
-    "datePublished": "2026-01-01T00:00:00\u002b00:00",
+    "copyrightYear": "2021",
+    "dateCreated": "2021-05-01T00:00:00\u002b00:00",
+    "datePublished": "2021-05-01T00:00:00\u002b00:00",
     
-    "dateModified": "2026-01-01T00:00:00\u002b00:00",
+    "dateModified": "2021-05-01T00:00:00\u002b00:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "278"
+    "wordCount": "1090"
   }]
   </script>
 
@@ -506,7 +506,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        How I deployed this website
+        Estimating the carbon footprint of Dutch recipes
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -558,7 +558,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-01-01T00:00:00&#43;00:00">1 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>278 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+      <time datetime="2021-05-01T00:00:00&#43;00:00">1 May 2021</time><span class="px-2 text-primary-500">&middot;</span><span>1090 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
     
 
     
@@ -681,64 +681,146 @@
         
 
         <div class="article-content max-w-prose mb-20">
-          <p>So as a first post, lets briefly explain how I deployed this website. I used <a
-  href="https://gohugo.io/"
+          <p>Food systems account for roughly a quarter of global GHG emissions, with dairy, meat, and eggs making up 80% of most dietary footprints. Online recipes are a scalable, low-bias window into what people actually cook — but turning free-text Dutch recipe ingredients into emission estimates requires solving a surprisingly thorny NLP pipeline. This post is about building that pipeline, and specifically about the iterative process of getting the first stage right.</p>
+<hr>
+
+<h2 class="relative group">The dataset: free labels hiding in the HTML
+    <div id="the-dataset-free-labels-hiding-in-the-html" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-dataset-free-labels-hiding-in-the-html" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The data came from 24Kitchen, a Dutch cooking website. The scraper collected 7,097 recipes with 82,263 ingredient descriptions and 240,131 tokens in total. What made this dataset unusual was that the site&rsquo;s own HTML already encoded the annotations: each ingredient line used <code>&lt;span class=&quot;ingredient&quot;&gt;</code>, <code>&lt;span class=&quot;amount&quot;&gt;</code>, and <code>&lt;span class=&quot;unit&quot;&gt;</code> to mark up its tokens. The labeled training set was essentially free — no hand-labeling required.</p>
+<p>The dataset was split into train, validation, and test sets using stratified random sampling on recipe category (main, appetizer, dessert, unknown) to avoid a category bias in the models:</p>
+<table>
+  <thead>
+    <tr><th></th><th>Recipes</th><th>Ingredients</th><th>Tokens</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Train</strong></td><td>5,640 (79.5%)</td><td>65,599 (79.7%)</td><td>191,965 (79.8%)</td></tr>
+    <tr><td><strong>Validation</strong></td><td>726 (10.2%)</td><td>8,226 (10.0%)</td><td>24,131 (10.0%)</td></tr>
+    <tr><td><strong>Test</strong></td><td>731 (10.3%)</td><td>8,438 (10.3%)</td><td>24,475 (10.2%)</td></tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">The pipeline
+    <div id="the-pipeline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-pipeline" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The end goal was a recipe-level GHG footprint estimate. Getting there required four chained tasks:</p>
+<ol>
+<li><strong>Tagging</strong> — label each token in an ingredient description as <code>ingredient</code>, <code>quantity</code>, <code>unit</code>, or <code>other</code></li>
+<li><strong>Classification</strong> — map the ingredient tokens to a food class in the FoodEx2 taxonomy, using an EFSA pretrained model (after translating Dutch tokens to English via Microsoft Translator)</li>
+<li><strong>Conversion</strong> — convert quantity and unit tokens to grams, using the Portie-online database and NEVO food coding system</li>
+<li><strong>Emission allocation</strong> — look up the GHG emission distribution for the predicted food class in the SHARP knowledge base, then compute a mass-weighted footprint for the full recipe</li>
+</ol>
+<p>Errors compound: a wrong tag in step 1 produces a wrong ingredient string in step 2, which breaks the mass lookup in step 3. The tagger quality matters a lot.</p>
+<hr>
+
+<h2 class="relative group">Iterative feature engineering for the tagger
+    <div id="iterative-feature-engineering-for-the-tagger" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#iterative-feature-engineering-for-the-tagger" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The tagger is a decision tree (scikit-learn CART) trained to assign a label to each token. Rather than designing all features upfront, the approach was to start minimal and add features that addressed specific residual errors — one round at a time.</p>
+
+<h3 class="relative group">Round 1: position and length (T_sti)
+    <div id="round-1-position-and-length-t_sti" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#round-1-position-and-length-t_sti" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The first tagger used six binary features: whether the description has 1, 2, or 3 tokens total, and whether the current token is at position 0, 1, or 2. The idea was that ingredient descriptions have a predictable structure — quantities come first, units come second, ingredients follow.</p>
+<p>This worked better than expected. Quantities and units were cleanly separated: not a single quantity token was tagged as unit or vice versa. Ingredient recall was the weak point at 88.6%, leaving the tagger with an F1 of 94.2%.</p>
+<p>The main failure mode: descriptions like <code>olijfolie om in te bakken</code> (&ldquo;olive oil for frying purposes&rdquo;). The token <code>olijfolie</code> sits at position 0, just like a quantity would — so it got tagged as a quantity, and the filler words <code>om in te bakken</code> were tagged as ingredients.</p>
+
+<h3 class="relative group">Round 2: add is_numerical (T_num)
+    <div id="round-2-add-is_numerical-t_num" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#round-2-add-is_numerical-t_num" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>One feature added: whether the token looks like a number. The hypothesis was simple — quantities are usually numerals.</p>
+<p>The result: ingredient-tokens tagged as quantities dropped by 476 in the validation set. Back to <code>olijfolie om in te bakken</code>: <code>olijfolie</code> at position 0 is now correctly tagged as an ingredient because it isn&rsquo;t numerical. F1 improved to 95.9%.</p>
+<p>The residual problem shifted to unit/ingredient confusion. Prepositions and conjunctions like <code>om</code>, <code>in</code>, <code>te</code> were still being tagged as units.</p>
+
+<h3 class="relative group">Round 3: add POS features (T_pos)
+    <div id="round-3-add-pos-features-t_pos" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#round-3-add-pos-features-t_pos" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The tokens most often misclassified by T_num were inspected by their Part-of-Speech tags. Three POS tags appeared consistently among the top errors: <code>adj</code>, <code>adp</code> (adposition/preposition), and <code>cconj</code> (coordinating conjunction). Three binary features were added — one per POS tag.</p>
+<p>Ingredient recall jumped from 92.5% to 98.0%. <code>om in te bakken</code> tokens are now correctly tagged as ingredients since they carry adposition and conjunction tags. Final F1: 97.7%.</p>
+<table>
+  <thead>
+    <tr><th>Tagger</th><th>Features added</th><th>Key error fixed</th><th>F1</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>T_sti</strong></td><td>Position, description length</td><td>—</td><td>94.2%</td></tr>
+    <tr><td><strong>T_num</strong></td><td>+ is_numerical</td><td>Non-numeric tokens at position 0 mislabeled as quantity</td><td>95.9%</td></tr>
+    <tr><td><strong>T_pos</strong></td><td>+ adj, adp, cconj POS tags</td><td>Prepositions and conjunctions mislabeled as unit</td><td>97.7%</td></tr>
+  </tbody>
+</table>
+<p>The cascade effect was visible downstream too. For <code>olijfolie om in te bakken</code>, T_sti classified the ingredient as &ldquo;Snacks other than chips and similar&rdquo;, T_num improved to &ldquo;Olives for oil production&rdquo;, and only T_pos got to the correct class: &ldquo;Olive oils&rdquo;. A tagger error that dropped one ingredient token was enough to flip the food classification entirely.</p>
+<hr>
+
+<h2 class="relative group">Downstream results
+    <div id="downstream-results" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#downstream-results" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p><strong>Classification</strong> was evaluated on a manually annotated subset of 10 recipes (120 ingredients). The best configuration — T_pos with classification threshold P_t = 25% — reached 77% accuracy. The threshold choice mattered: too low and kitchen utensils (e.g. <code>staafmixer</code>, hand mixer) were classified as food; too high and common ingredients like <code>water</code> and <code>ui</code> (onion) were rejected as non-food.</p>
+<p><strong>Conversion</strong> fared better. With the correct food class, the Portie-online database could look up unit-to-gram conversions even for implicit units — <code>2 tomaten</code> (&ldquo;2 tomatoes&rdquo;) resolved to 370 grams via an items-to-mass lookup. Mass ratio reached up to 97%.</p>
+<p><strong>Emission allocation</strong> revealed the hard limit of the pipeline. The design used a conservative fallback — if an ingredient couldn&rsquo;t be classified, assume the worst-case GHG bounds from the knowledge base. In practice this wasn&rsquo;t enough. When a high-mass ingredient was misclassified, the error overwhelmed the fallback. In one recipe, <code>karbonades</code> (pork chops) was classified as veal — which has a lower bound of 38 kgCO2eq/kg instead of the correct 7 kgCO2eq/kg for pork. The conservative assumption couldn&rsquo;t compensate for that.</p>
+<p>The conclusion: a proof-of-technology, not a proof-of-concept. All sub-tasks worked to a measurable degree, but end-to-end conservative footprint bounds were not reliably achieved.</p>
+<hr>
+
+<h2 class="relative group">Lessons learned
+    <div id="lessons-learned" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#lessons-learned" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li><strong>Simple rule-based models can punch above their complexity class.</strong> Ten features, a decision tree, 97.7% F1. The iterative feature engineering approach — start minimal, inspect residuals, add targeted features — got more mileage than upfront feature design would have.</li>
+<li><strong>Errors compound downstream.</strong> The tagger&rsquo;s misses didn&rsquo;t just reduce tagging accuracy; they directly corrupted classification inputs. Understanding how a stage-1 error propagates is as important as measuring stage-1 accuracy in isolation.</li>
+<li><strong>The real bottleneck is the knowledge graph gap.</strong> Tagging and conversion are solvable. The hard problem is the chain of ontology mappings: Dutch ingredient text → English → FoodEx2 → NEVO → SHARP KB. Each step introduces noise, and there is no validated end-to-end Dutch ingredient-to-emission dataset to calibrate against.</li>
+</ul>
+<p>The code is on <a
+  href="https://github.com/robzwitserlood/NL-recipe-sustainability"
     target="_blank"
-  >Hugo</a> to build the website, and <a
-  href="https://www.scaleway.com/en/object-storage/"
-    target="_blank"
-  >Scaleway Object Storage</a> to host it. I chose Hugo because it&rsquo;s a static site generator that allows me to easily create and manage my content, and Scaleway because it&rsquo;s a European cloud provider that offers affordable and reliable object storage.</p>
-<p>Most credits for this website go to <a
-  href="https://www.scaleway.com/en/docs/tutorials/deploy-static-website-with-hugo-and-github-runners-to-object-storage/"
-    target="_blank"
-  >this tutorial</a> by Scaleway, which I followed step by step. I also used the <a
-  href="https://blowfish.page/"
-    target="_blank"
-  >Blowfish theme</a> for Hugo, which provides a clean and simple design for my website.</p>
-<p>The most interesting part for me is the CI/CD pipeline that I set up using GitHub Actions. Whenever I push changes to the main branch, GitHub Actions automatically builds the website using Hugo and deploys it to Object Storage. This way, I can focus on creating content without worrying about the deployment process. The code snippet for the GitHub Actions workflow looks like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and Deploy Hugo</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;main&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build_and_deploy</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and Deploy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Hugo</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span></span></span><span class="line"><span class="cl"><span class="sd">          set -e
-</span></span></span><span class="line"><span class="cl"><span class="sd">          HUGO_DOWNLOAD=hugo_extended_withdeploy_0.152.2_Linux-64bit.tar.gz
-</span></span></span><span class="line"><span class="cl"><span class="sd">          wget https://github.com/gohugoio/hugo/releases/download/v0.152.2/${HUGO_DOWNLOAD}
-</span></span></span><span class="line"><span class="cl"><span class="sd">          tar xvzf ${HUGO_DOWNLOAD} hugo
-</span></span></span><span class="line"><span class="cl"><span class="sd">          mv hugo $HOME/hugo
-</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;$HOME&#34; &gt;&gt; $GITHUB_PATH</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Validate AWS secrets</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span></span></span><span class="line"><span class="cl"><span class="sd">          if [ -z &#34;${{ secrets.SCW_ACCESS_KEY_ID }}&#34; ] || [ -z &#34;${{ secrets.SCW_SECRET_ACCESS_KEY }}&#34; ]; then
-</span></span></span><span class="line"><span class="cl"><span class="sd">            echo &#34;ERROR: Missing AWS credentials. Add SCW_ACCESS_KEY_ID and SCW_SECRET_ACCESS_KEY to repository secrets.&#34;
-</span></span></span><span class="line"><span class="cl"><span class="sd">            exit 1
-</span></span></span><span class="line"><span class="cl"><span class="sd">          fi</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">build site</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy to Scaleway</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_ACCESS_KEY_ID</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SCW_ACCESS_KEY_ID }}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SCW_SECRET_ACCESS_KEY }}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_REGION</span><span class="p">:</span><span class="w"> </span><span class="l">nl-ams</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo deploy --force --maxDeletes -1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span></code></pre></div>
+  >GitHub</a>.</p>
+
           
           
           
@@ -765,8 +847,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_post/2026-01-01-this-website.md"
-          data-oid-likes="likes_post/2026-01-01-this-website.md"></script>
+          data-oid="views_post/recipe-sustainability/index.md"
+          data-oid-likes="likes_post/recipe-sustainability/index.md"></script>
       
     </section>
 
@@ -782,32 +864,19 @@
       <div class="flex justify-between pt-3">
         <span class="flex flex-col">
           
-            <a
-              class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/post/semantic-segmentation/">
-              <span class="leading-6">
-                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Semantic segmentation on aerial images
-              </span>
-            </a>
-            
-              <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                <time datetime="2022-09-01T00:00:00&#43;00:00">1 September 2022</time>
-              </span>
-            
-          
         </span>
         <span class="flex flex-col items-end">
           
             <a
               class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/post/llm-cluster-validation/">
+              href="/post/semantic-segmentation/">
               <span class="leading-6">
-                Teaching an LLM to spot the odd one out&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+                Semantic segmentation on aerial images&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
               </span>
             </a>
             
               <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                <time datetime="2026-01-15T00:00:00&#43;00:00">15 January 2026</time>
+                <time datetime="2022-09-01T00:00:00&#43;00:00">1 September 2022</time>
               </span>
             
           

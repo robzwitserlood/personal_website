@@ -22,9 +22,9 @@ Experience:
       - Title: Data Scientist
         Date: Dec 2021 - Present
         Details:
-          - Computational text analysis with LLM-assistance
-          - Semantic segmentation on aerial images ([link](/posts/semantic-segmentation "Semantic segmentation"))
-          - Semantic search on Dutch policy documents
+          - LLM finetuning for text cluster validation | [more info](/post/llm-cluster-validation)
+          - Semantic segmentation on aerial images | [more info](/post/semantic-segmentation)
+          - Semantic search on Dutch policy documents | [more info](/post/vector-search)
           - Data ingestion pipeline to data lakehouse 
         Badges: ['Data science', 'Machine learning' ,'NLP', 'Computer vision', 'Data engineering', 'Linked data', 'ELT', 'CI/CD']
   - Employer: TomTom

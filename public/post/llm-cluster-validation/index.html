@@ -15,8 +15,8 @@
 
   
   
-    <title>How I deployed this website &middot; Home</title>
-    <meta name="title" content="How I deployed this website &middot; Home">
+    <title>Teaching an LLM to spot the odd one out &middot; Home</title>
+    <meta name="title" content="Teaching an LLM to spot the odd one out &middot; Home">
   
 
   
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/post/2026-01-01-this-website/">
+  <link rel="canonical" href="http://localhost:1313/post/llm-cluster-validation/">
   
 
   
@@ -46,18 +46,18 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/post/2026-01-01-this-website/">
+  <meta property="og:url" content="http://localhost:1313/post/llm-cluster-validation/">
   <meta property="og:site_name" content="Home">
-  <meta property="og:title" content="How I deployed this website">
+  <meta property="og:title" content="Teaching an LLM to spot the odd one out">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2026-01-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-01-01T00:00:00+00:00">
+    <meta property="article:published_time" content="2026-01-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-01-15T00:00:00+00:00">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="How I deployed this website">
+  <meta name="twitter:title" content="Teaching an LLM to spot the odd one out">
 
   
   
@@ -204,26 +204,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "How I deployed this website",
-    "headline": "How I deployed this website",
+    "name": "Teaching an LLM to spot the odd one out",
+    "headline": "Teaching an LLM to spot the odd one out",
     
     
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/post\/2026-01-01-this-website\/",
+    "url" : "http:\/\/localhost:1313\/post\/llm-cluster-validation\/",
     "author" : {
       "@type": "Person",
       "name": "Rob Zwitserlood"
     },
     "copyrightYear": "2026",
-    "dateCreated": "2026-01-01T00:00:00\u002b00:00",
-    "datePublished": "2026-01-01T00:00:00\u002b00:00",
+    "dateCreated": "2026-01-15T00:00:00\u002b00:00",
+    "datePublished": "2026-01-15T00:00:00\u002b00:00",
     
-    "dateModified": "2026-01-01T00:00:00\u002b00:00",
+    "dateModified": "2026-01-15T00:00:00\u002b00:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "278"
+    "wordCount": "1056"
   }]
   </script>
 
@@ -506,7 +506,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        How I deployed this website
+        Teaching an LLM to spot the odd one out
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -558,7 +558,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-01-01T00:00:00&#43;00:00">1 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>278 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+      <time datetime="2026-01-15T00:00:00&#43;00:00">15 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>1056 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
     
 
     
@@ -681,64 +681,166 @@
         
 
         <div class="article-content max-w-prose mb-20">
-          <p>So as a first post, lets briefly explain how I deployed this website. I used <a
-  href="https://gohugo.io/"
-    target="_blank"
-  >Hugo</a> to build the website, and <a
-  href="https://www.scaleway.com/en/object-storage/"
-    target="_blank"
-  >Scaleway Object Storage</a> to host it. I chose Hugo because it&rsquo;s a static site generator that allows me to easily create and manage my content, and Scaleway because it&rsquo;s a European cloud provider that offers affordable and reliable object storage.</p>
-<p>Most credits for this website go to <a
-  href="https://www.scaleway.com/en/docs/tutorials/deploy-static-website-with-hugo-and-github-runners-to-object-storage/"
-    target="_blank"
-  >this tutorial</a> by Scaleway, which I followed step by step. I also used the <a
-  href="https://blowfish.page/"
-    target="_blank"
-  >Blowfish theme</a> for Hugo, which provides a clean and simple design for my website.</p>
-<p>The most interesting part for me is the CI/CD pipeline that I set up using GitHub Actions. Whenever I push changes to the main branch, GitHub Actions automatically builds the website using Hugo and deploys it to Object Storage. This way, I can focus on creating content without worrying about the deployment process. The code snippet for the GitHub Actions workflow looks like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and Deploy Hugo</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;main&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build_and_deploy</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and Deploy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Hugo</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span></span></span><span class="line"><span class="cl"><span class="sd">          set -e
-</span></span></span><span class="line"><span class="cl"><span class="sd">          HUGO_DOWNLOAD=hugo_extended_withdeploy_0.152.2_Linux-64bit.tar.gz
-</span></span></span><span class="line"><span class="cl"><span class="sd">          wget https://github.com/gohugoio/hugo/releases/download/v0.152.2/${HUGO_DOWNLOAD}
-</span></span></span><span class="line"><span class="cl"><span class="sd">          tar xvzf ${HUGO_DOWNLOAD} hugo
-</span></span></span><span class="line"><span class="cl"><span class="sd">          mv hugo $HOME/hugo
-</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;$HOME&#34; &gt;&gt; $GITHUB_PATH</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Validate AWS secrets</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span></span></span><span class="line"><span class="cl"><span class="sd">          if [ -z &#34;${{ secrets.SCW_ACCESS_KEY_ID }}&#34; ] || [ -z &#34;${{ secrets.SCW_SECRET_ACCESS_KEY }}&#34; ]; then
-</span></span></span><span class="line"><span class="cl"><span class="sd">            echo &#34;ERROR: Missing AWS credentials. Add SCW_ACCESS_KEY_ID and SCW_SECRET_ACCESS_KEY to repository secrets.&#34;
-</span></span></span><span class="line"><span class="cl"><span class="sd">            exit 1
-</span></span></span><span class="line"><span class="cl"><span class="sd">          fi</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">build site</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy to Scaleway</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_ACCESS_KEY_ID</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SCW_ACCESS_KEY_ID }}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SCW_SECRET_ACCESS_KEY }}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_REGION</span><span class="p">:</span><span class="w"> </span><span class="l">nl-ams</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo deploy --force --maxDeletes -1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span></code></pre></div>
+          
+<h2 class="relative group">Introduction
+    <div id="introduction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#introduction" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>This post walks through a project I built to optimize an LLM without manual prompt engineering. The task is simple — given six Dutch keywords, find the one that doesn&rsquo;t belong — but the pipeline around it covers the full DSPy workflow: defining a signature, running a baseline, applying progressively heavier optimizers, and fine-tuning a small local model (Ministral). By the end, you&rsquo;ll have a clear picture of how DSPy structures LLM programs and what each optimization stage actually buys you.</p>
+<hr>
+
+<h2 class="relative group">The Task
+    <div id="the-task" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-task" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The concrete problem is intruder detection: given a set of six keywords, five come from the same semantic cluster and one comes from a different cluster. The LLM&rsquo;s job is to identify which keyword is the outlier.</p>
+<p>An example Dutch input looks like this:</p>
+<pre tabindex="0"><code>Keywords: rechter, vonnis, rechtbank, straf, verdachte, klimaat
+</code></pre><p>The first five are all from a cluster about the Dutch legal system. <code>klimaat</code> (climate) is the intruder. For a model that understands Dutch, this is straightforward. But clusters from real-world news data are messier — topics bleed into each other, and a keyword like <code>maatregel</code> (measure) plausibly belongs in a legal context, a climate policy context, or a public health context. The task is easy to define and easy to evaluate, which makes it a good vehicle for comparing optimization strategies.</p>
+<hr>
+
+<h2 class="relative group">The Data
+    <div id="the-data" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-data" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The keyword clusters come from Dutch news articles processed through BERTopic. BERTopic is a topic modelling approach that uses sentence embeddings and hierarchical density clustering (HDBSCAN) to group documents into topics, then represents each topic by its most distinctive keywords via a class-based TF-IDF variant (c-TF-IDF).</p>
+<p>The output is a set of topics, each described by a ranked list of keywords. To construct intruder detection examples, two topics are sampled, five keywords are drawn from one, one keyword is drawn from the other, and the six are shuffled into a fixed-width input. Ground truth is the position of the sampled intruder. Raw examples are stored in <code>data/raw_examples.json</code> and loaded once at the start of each script.</p>
+<hr>
+
+<h2 class="relative group">The Optimization Pipeline
+    <div id="the-optimization-pipeline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-optimization-pipeline" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The pipeline runs four stages in order of increasing computational cost. Each stage builds on the previous one: later stages need training signal that earlier stages generate.</p>
+
+<h3 class="relative group">Stage 1: Baseline
+    <div id="stage-1-baseline" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-1-baseline" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The baseline is a zero-shot <code>dspy.Predict</code> module with no examples and no optimized prompt — just the signature docstring and field descriptions turned into a prompt by DSPy&rsquo;s default template. This establishes the floor: what can the model do out of the box, before any optimization?</p>
+<p><code>[PLACEHOLDER: baseline accuracy]</code></p>
+
+<h3 class="relative group">Stage 2: BootstrapFewShot
+    <div id="stage-2-bootstrapfewshot" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-2-bootstrapfewshot" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p><code>BootstrapFewShot</code> is DSPy&rsquo;s lightest optimizer. It runs the model over a small subset of the training set, collects examples where the model answered correctly, and automatically selects a handful to prepend as few-shot demonstrations. No gradient updates, no external LM calls — just prompt-level improvement from examples the model already knows how to solve.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">optimizer</span> <span class="o">=</span> <span class="n">BootstrapFewShot</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="n">exact_match</span><span class="p">,</span> <span class="n">max_bootstrapped_demos</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">compiled_program</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">program</span><span class="p">,</span> <span class="n">trainset</span><span class="o">=</span><span class="n">trainset</span><span class="p">)</span>
+</span></span></code></pre></div><p><code>[PLACEHOLDER: BootstrapFewShot accuracy vs. baseline]</code></p>
+
+<h3 class="relative group">Stage 3: GEPA
+    <div id="stage-3-gepa" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-3-gepa" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>GEPA (Generalized Prompt Optimization) goes a step further by using a separate, more capable model — here <code>gpt-4o-mini</code> — as a <em>reflection LM</em>. It looks at examples where the student model failed and rewrites the instruction string to be more explicit or better targeted at the failure mode. The result is a new instruction that the student model didn&rsquo;t write for itself.</p>
+<p>This is the first stage that incurs external API cost, which is why it sits after the cheaper prompt-level optimizer rather than before it.</p>
+<p><code>[PLACEHOLDER: GEPA accuracy vs. BootstrapFewShot]</code></p>
+
+<h3 class="relative group">Stage 4: BootstrapFinetune
+    <div id="stage-4-bootstrapfinetune" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#stage-4-bootstrapfinetune" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>The primary objective. <code>BootstrapFinetune</code> uses the examples and traces collected in earlier stages as a synthetic fine-tuning dataset, then updates the weights of the student model — <code>meta-llama/Llama-3.2-1B-Instruct</code> — directly. This is no longer prompt engineering; it&rsquo;s a weight update.</p>
+<p>The rationale for the ordering is that you don&rsquo;t want to commit to the cost of fine-tuning before you know what a well-prompted version of the model can achieve. The earlier stages generate better training signal than raw gold labels alone, because they include reasoning traces and examples that the model architecture can actually learn from.</p>
+<p><code>[PLACEHOLDER: BootstrapFinetune accuracy vs. GEPA]</code></p>
+<hr>
+
+<h2 class="relative group">Experiment Tracking with MLflow
+    <div id="experiment-tracking-with-mlflow" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#experiment-tracking-with-mlflow" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>DSPy has native MLflow autologging. Enabling it takes one line:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">mlflow</span>
+</span></span><span class="line"><span class="cl"><span class="n">mlflow</span><span class="o">.</span><span class="n">dspy</span><span class="o">.</span><span class="n">autolog</span><span class="p">()</span>
+</span></span></code></pre></div><p>From that point, every optimizer run logs the compiled program state, per-example predictions, and aggregate metrics to an MLflow experiment. The compiled program state is particularly useful: it&rsquo;s a serialized snapshot of the optimized prompt or fine-tuned adapter that can be loaded back without re-running the optimizer.</p>
+<p>Fine-tuned models are registered in the MLflow model registry and served locally:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mlflow models serve -m <span class="s2">&#34;models:/intruder-detector/1&#34;</span> -p <span class="m">5001</span>
+</span></span></code></pre></div><p>This exposes the same OpenAI-compatible endpoint that DSPy&rsquo;s LM client expects — so the deployed model is a drop-in replacement for the development model without any code changes.</p>
+<p><code>[PLACEHOLDER: MLflow run comparison screenshot]</code></p>
+<hr>
+
+<h2 class="relative group">Lessons Learned &amp; What&rsquo;s Next
+    <div id="lessons-learned--whats-next" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#lessons-learned--whats-next" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<ul>
+<li>
+<p><strong>The signature is the interface contract.</strong> Getting the field descriptions right matters more than it first appears. Vague descriptions produce inconsistent output formats; precise ones make parsing reliable and give the optimizer something concrete to work with.</p>
+</li>
+<li>
+<p><strong>Run the cheap optimizers first.</strong> BootstrapFewShot costs almost nothing and often closes most of the gap between baseline and a well-tuned model. GEPA and BootstrapFinetune are worth running, but the incremental gain over BootstrapFewShot tells you whether the task is prompt-starved or weight-starved.</p>
+</li>
+<li>
+<p><strong>Local models change the economics.</strong> Running <code>ministral-3:3b</code> via SGLang means the baseline and BootstrapFewShot stages are effectively free. That lowers the threshold for experimentation — you can iterate on the signature, the metric, and the training split without watching a cost meter.</p>
+</li>
+<li>
+<p><strong>What&rsquo;s next:</strong> Scaling the student model to a larger variant, adding more topically diverse BERTopic clusters to the training set, and evaluating whether the fine-tuned model transfers to clusters from a different corpus entirely.</p>
+</li>
+</ul>
+<hr>
+
+<h2 class="relative group">Conclusion
+    <div id="conclusion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#conclusion" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>DSPy reframes LLM development from prompt authorship to program optimization. The intruder detection task is simple enough to reason about clearly, which makes it a useful lens for understanding what each optimization stage actually does: BootstrapFewShot finds examples, GEPA rewrites instructions, BootstrapFinetune updates weights. Each stage is independently useful and composable. The full pipeline — from a zero-shot baseline to a fine-tuned local model tracked in MLflow — is a blueprint that transfers to more complex tasks with very few structural changes.</p>
+
           
           
           
@@ -765,8 +867,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_post/2026-01-01-this-website.md"
-          data-oid-likes="likes_post/2026-01-01-this-website.md"></script>
+          data-oid="views_post/llm-cluster-validation/index.md"
+          data-oid-likes="likes_post/llm-cluster-validation/index.md"></script>
       
     </section>
 
@@ -784,32 +886,19 @@
           
             <a
               class="flex text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/post/semantic-segmentation/">
+              href="/post/this-website/">
               <span class="leading-6">
-                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;Semantic segmentation on aerial images
+                <span class="inline-block rtl:rotate-180">&larr;</span>&ensp;How I deployed this website
               </span>
             </a>
             
               <span class="ms-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                <time datetime="2022-09-01T00:00:00&#43;00:00">1 September 2022</time>
+                <time datetime="2026-01-01T00:00:00&#43;00:00">1 January 2026</time>
               </span>
             
           
         </span>
         <span class="flex flex-col items-end">
-          
-            <a
-              class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/post/llm-cluster-validation/">
-              <span class="leading-6">
-                Teaching an LLM to spot the odd one out&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
-              </span>
-            </a>
-            
-              <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                <time datetime="2026-01-15T00:00:00&#43;00:00">15 January 2026</time>
-              </span>
-            
           
         </span>
       </div>

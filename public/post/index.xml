@@ -9,14 +9,34 @@
     <managingEditor>robzwitserlood@tuta.io (Rob Zwitserlood)</managingEditor>
     <webMaster>robzwitserlood@tuta.io (Rob Zwitserlood)</webMaster>
     <copyright>© 2026 Rob Zwitserlood</copyright>
-    <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Teaching an LLM to spot the odd one out</title>
+      <link>http://localhost:1313/post/llm-cluster-validation/</link>
+      <pubDate>Thu, 15 Jan 2026 00:00:00 +0000</pubDate>
+      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/post/llm-cluster-validation/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>How I deployed this website</title>
-      <link>http://localhost:1313/post/2026-01-01-this-website/</link>
+      <link>http://localhost:1313/post/this-website/</link>
       <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
       <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
-      <guid>http://localhost:1313/post/2026-01-01-this-website/</guid>
+      <guid>http://localhost:1313/post/this-website/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Can AI find what keyword search can&#39;t? A pilot on Dutch policy documents</title>
+      <link>http://localhost:1313/post/vector-search/</link>
+      <pubDate>Mon, 21 Apr 2025 00:00:00 +0000</pubDate>
+      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/post/vector-search/</guid>
       <description></description>
       
     </item>
@@ -27,6 +47,16 @@
       <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
       <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
       <guid>http://localhost:1313/post/semantic-segmentation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Estimating the carbon footprint of Dutch recipes</title>
+      <link>http://localhost:1313/post/recipe-sustainability/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <author>robzwitserlood@tuta.io (Rob Zwitserlood)</author>
+      <guid>http://localhost:1313/post/recipe-sustainability/</guid>
       <description></description>
       
     </item>

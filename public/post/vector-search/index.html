@@ -15,8 +15,8 @@
 
   
   
-    <title>How I deployed this website &middot; Home</title>
-    <meta name="title" content="How I deployed this website &middot; Home">
+    <title>Can AI find what keyword search can&#39;t? A pilot on Dutch policy documents &middot; Home</title>
+    <meta name="title" content="Can AI find what keyword search can&#39;t? A pilot on Dutch policy documents &middot; Home">
   
 
   
@@ -24,7 +24,7 @@
   
   
   
-  <link rel="canonical" href="http://localhost:1313/post/2026-01-01-this-website/">
+  <link rel="canonical" href="http://localhost:1313/post/vector-search/">
   
 
   
@@ -46,18 +46,18 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/post/2026-01-01-this-website/">
+  <meta property="og:url" content="http://localhost:1313/post/vector-search/">
   <meta property="og:site_name" content="Home">
-  <meta property="og:title" content="How I deployed this website">
+  <meta property="og:title" content="Can AI find what keyword search can&#39;t? A pilot on Dutch policy documents">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
-    <meta property="article:published_time" content="2026-01-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-01-01T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-04-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-21T00:00:00+00:00">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="How I deployed this website">
+  <meta name="twitter:title" content="Can AI find what keyword search can&#39;t? A pilot on Dutch policy documents">
 
   
   
@@ -204,26 +204,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "How I deployed this website",
-    "headline": "How I deployed this website",
+    "name": "Can AI find what keyword search can\u0027t? A pilot on Dutch policy documents",
+    "headline": "Can AI find what keyword search can\u0027t? A pilot on Dutch policy documents",
     
     
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/post\/2026-01-01-this-website\/",
+    "url" : "http:\/\/localhost:1313\/post\/vector-search\/",
     "author" : {
       "@type": "Person",
       "name": "Rob Zwitserlood"
     },
-    "copyrightYear": "2026",
-    "dateCreated": "2026-01-01T00:00:00\u002b00:00",
-    "datePublished": "2026-01-01T00:00:00\u002b00:00",
+    "copyrightYear": "2025",
+    "dateCreated": "2025-04-21T00:00:00\u002b00:00",
+    "datePublished": "2025-04-21T00:00:00\u002b00:00",
     
-    "dateModified": "2026-01-01T00:00:00\u002b00:00",
+    "dateModified": "2025-04-21T00:00:00\u002b00:00",
     
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "278"
+    "wordCount": "1260"
   }]
   </script>
 
@@ -506,7 +506,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        How I deployed this website
+        Can AI find what keyword search can't? A pilot on Dutch policy documents
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -558,7 +558,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-01-01T00:00:00&#43;00:00">1 January 2026</time><span class="px-2 text-primary-500">&middot;</span><span>278 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+      <time datetime="2025-04-21T00:00:00&#43;00:00">21 April 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1260 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
     
 
     
@@ -681,64 +681,212 @@
         
 
         <div class="article-content max-w-prose mb-20">
-          <p>So as a first post, lets briefly explain how I deployed this website. I used <a
-  href="https://gohugo.io/"
-    target="_blank"
-  >Hugo</a> to build the website, and <a
-  href="https://www.scaleway.com/en/object-storage/"
-    target="_blank"
-  >Scaleway Object Storage</a> to host it. I chose Hugo because it&rsquo;s a static site generator that allows me to easily create and manage my content, and Scaleway because it&rsquo;s a European cloud provider that offers affordable and reliable object storage.</p>
-<p>Most credits for this website go to <a
-  href="https://www.scaleway.com/en/docs/tutorials/deploy-static-website-with-hugo-and-github-runners-to-object-storage/"
-    target="_blank"
-  >this tutorial</a> by Scaleway, which I followed step by step. I also used the <a
-  href="https://blowfish.page/"
-    target="_blank"
-  >Blowfish theme</a> for Hugo, which provides a clean and simple design for my website.</p>
-<p>The most interesting part for me is the CI/CD pipeline that I set up using GitHub Actions. Whenever I push changes to the main branch, GitHub Actions automatically builds the website using Hugo and deploys it to Object Storage. This way, I can focus on creating content without worrying about the deployment process. The code snippet for the GitHub Actions workflow looks like this:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and Deploy Hugo</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;main&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build_and_deploy</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build and Deploy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Hugo</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span></span></span><span class="line"><span class="cl"><span class="sd">          set -e
-</span></span></span><span class="line"><span class="cl"><span class="sd">          HUGO_DOWNLOAD=hugo_extended_withdeploy_0.152.2_Linux-64bit.tar.gz
-</span></span></span><span class="line"><span class="cl"><span class="sd">          wget https://github.com/gohugoio/hugo/releases/download/v0.152.2/${HUGO_DOWNLOAD}
-</span></span></span><span class="line"><span class="cl"><span class="sd">          tar xvzf ${HUGO_DOWNLOAD} hugo
-</span></span></span><span class="line"><span class="cl"><span class="sd">          mv hugo $HOME/hugo
-</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;$HOME&#34; &gt;&gt; $GITHUB_PATH</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Validate AWS secrets</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span></span></span><span class="line"><span class="cl"><span class="sd">          if [ -z &#34;${{ secrets.SCW_ACCESS_KEY_ID }}&#34; ] || [ -z &#34;${{ secrets.SCW_SECRET_ACCESS_KEY }}&#34; ]; then
-</span></span></span><span class="line"><span class="cl"><span class="sd">            echo &#34;ERROR: Missing AWS credentials. Add SCW_ACCESS_KEY_ID and SCW_SECRET_ACCESS_KEY to repository secrets.&#34;
-</span></span></span><span class="line"><span class="cl"><span class="sd">            exit 1
-</span></span></span><span class="line"><span class="cl"><span class="sd">          fi</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">build site</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy to Scaleway</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_ACCESS_KEY_ID</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SCW_ACCESS_KEY_ID }}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_SECRET_ACCESS_KEY</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.SCW_SECRET_ACCESS_KEY }}</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">AWS_REGION</span><span class="p">:</span><span class="w"> </span><span class="l">nl-ams</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo deploy --force --maxDeletes -1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
-</span></span></span></code></pre></div>
+          <p><strong>TL;DR:</strong> We built an AI-powered semantic search engine on 200k+ Dutch government policy documents to help PBL researchers find subsidy documents related to nitrogen reduction. AI-only search reached up to 80% relevance. Hybrid search—contrary to what the literature suggests—underperformed. Here&rsquo;s the story of why.</p>
+<hr>
+
+<h2 class="relative group">The problem with &ldquo;agricultural subsidies&rdquo;
+    <div id="the-problem-with-agricultural-subsidies" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-problem-with-agricultural-subsidies" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Imagine you&rsquo;re a policy researcher at PBL (Planbureau voor de Leefomgeving), trying to understand which subsidies Dutch provinces and water authorities have granted to reduce nitrogen emissions. You turn to the government&rsquo;s official publication database—<em>Officiële Bekendmakingen</em>—and type &ldquo;agricultural subsidies&rdquo; into the search bar.</p>
+<p>Too few results. The documents you&rsquo;re looking for use different words. You try just &ldquo;subsidies.&rdquo; Now you&rsquo;re drowning in irrelevant results. There&rsquo;s no middle ground.</p>
+<p>This is the classic failure mode of keyword search: it matches exact words, not meaning. A subsidy scheme for relocating livestock farms doesn&rsquo;t mention &ldquo;agricultural subsidy&rdquo; in its title, but a domain expert knows immediately that it&rsquo;s relevant. Keyword search doesn&rsquo;t understand that.</p>
+<p>This is what motivated a pilot project by WLV and IBL at PBL: could an AI-powered search engine bridge that gap?</p>
+<hr>
+
+<h2 class="relative group">The dataset: 200,000 policy documents
+    <div id="the-dataset-200000-policy-documents" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-dataset-200000-policy-documents" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The <em>Officiële Bekendmakingen</em> portal publishes official government decisions, regulations, and subsidy schemes from municipalities, provinces, water authorities, and national government. For this pilot, we scoped to two publication types from 2015 to 2023:</p>
+<ul>
+<li><strong>Waterschapsblad</strong> (regional water authority publications): ~117,000 documents</li>
+<li><strong>Provinciaal blad</strong> (provincial publications): ~90,000 documents</li>
+</ul>
+<p>That&rsquo;s a lot of documents. Each one is structured XML with headers, introductions, policy text, and standardized closings. Documents vary considerably in length—on average around 400 words for Waterschapsblad and 550 for Provinciaal blad—which turned out to matter a lot for how we split them up.</p>
+<hr>
+
+<h2 class="relative group">What &ldquo;AI search&rdquo; actually means here
+    <div id="what-ai-search-actually-means-here" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#what-ai-search-actually-means-here" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Before diving into the experiment, it&rsquo;s worth clarifying what makes this search &ldquo;AI-powered.&rdquo; The key difference from keyword search is how documents and queries are represented.</p>
+<p>In keyword search, a document is essentially a bag of words. In semantic search, each document is converted into a dense vector—a list of hundreds of numbers—by a <em>text representation model</em>. These numbers capture meaning: documents about related topics end up close together in this high-dimensional space, even if they share no exact words. When you search, your query is converted into the same kind of vector, and the engine retrieves the documents whose vectors are closest.</p>
+<p>We tested three such models:</p>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Model 1</th>
+          <th>Model 2</th>
+          <th>Model 3</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Name</strong></td>
+          <td>robbert-2022-dutch-sentence-transformers</td>
+          <td>distiluse-base-multilingual-cased-v1</td>
+          <td>BGE-M3</td>
+      </tr>
+      <tr>
+          <td><strong>Language focus</strong></td>
+          <td>100% Dutch</td>
+          <td>15 languages incl. Dutch</td>
+          <td>100+ languages incl. Dutch</td>
+      </tr>
+      <tr>
+          <td><strong>Parameters</strong></td>
+          <td>119M</td>
+          <td>135M</td>
+          <td>567M</td>
+      </tr>
+      <tr>
+          <td><strong>Max sequence length</strong></td>
+          <td>128 tokens</td>
+          <td>128 tokens</td>
+          <td>8192 tokens</td>
+      </tr>
+  </tbody>
+</table>
+<p>Model 1 was purpose-built for Dutch. Model 3 is a heavyweight multilingual model with a much longer context window. Model 2 sits somewhere in between.</p>
+<hr>
+
+<h2 class="relative group">The experiment: one query, twelve configurations
+    <div id="the-experiment-one-query-twelve-configurations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-experiment-one-query-twelve-configurations" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>We kept the experiment focused: one query, twelve configurations, evaluated on the top 5 results.</p>
+<p>The query was: <em>&ldquo;Voor welke activiteiten ter reductie van stikstof kan subsidie worden verstrekt?&rdquo;</em> (Which activities to reduce nitrogen emissions can receive subsidies?)</p>
+<p>The twelve configurations came from crossing three variables:</p>
+<ul>
+<li><strong>Text representation model</strong>: Model 1, 2, or 3</li>
+<li><strong>Search mode</strong>: AI-only (semantic) or hybrid (semantic + keyword)</li>
+<li><strong>Result filter</strong>: with or without restricting to the category <em>Landbouw Organisatie en beleid</em></li>
+</ul>
+<p>A domain expert at PBL labeled all 60 resulting documents (5 results × 12 configurations) as relevant, partly relevant, or not relevant.</p>
+<hr>
+
+<h2 class="relative group">The results: surprises all around
+    <div id="the-results-surprises-all-around" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-results-surprises-all-around" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Bigger isn&rsquo;t always better
+    <div id="bigger-isnt-always-better" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#bigger-isnt-always-better" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Model 3 is nearly five times larger than Model 1, yet they perform similarly on this task. Model 2, despite having access to more multilingual training data, actually underperforms both. This is a useful reminder: model size and breadth don&rsquo;t guarantee better performance on a narrow, domain-specific task. A model trained specifically on Dutch text can outpunch its weight class.</p>
+
+<h3 class="relative group">Hybrid search underperforms—and we&rsquo;re not sure why
+    <div id="hybrid-search-underperformsand-were-not-sure-why" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hybrid-search-underperformsand-were-not-sure-why" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>This is the most counterintuitive finding. The literature consistently shows that hybrid search (combining semantic and keyword signals) outperforms semantic-only search. We found the opposite: hybrid configurations performed worse, and in some cases dramatically so. Models 1 and 3 in hybrid mode returned no relevant documents at all in the top 5 when no category filter was applied.</p>
+<p>The frustrating part: we can&rsquo;t fully explain it. The hybrid search implementation runs on Azure AI Search, whose code isn&rsquo;t open source. We can&rsquo;t inspect how it&rsquo;s merging the two signals, or whether there&rsquo;s a hyperparameter we should have tuned. This is a limitation worth flagging for anyone else running similar experiments on managed search platforms.</p>
+
+<h3 class="relative group">The category filter makes a big difference
+    <div id="the-category-filter-makes-a-big-difference" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#the-category-filter-makes-a-big-difference" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Restricting results to the <em>Landbouw Organisatie en beleid</em> category improved relevance by 20 to 40 percentage points across configurations. That&rsquo;s a massive lift for a simple filter. It also reveals an important truth: a smarter metadata strategy can partly substitute for a smarter model. Before you fine-tune anything, figure out whether you have useful structure you&rsquo;re not using.</p>
+
+<h3 class="relative group">Tokenization: a hidden culprit?
+    <div id="tokenization-a-hidden-culprit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tokenization-a-hidden-culprit" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>One hypothesis for the performance differences between models is tokenization. When a model processes text, it first breaks it into tokens—subword units that depend on the tokenizer design. Model 1 uses Byte-Pair Encoding (BPE), Model 2 uses WordPiece (WP), and Model 3 also uses BPE but with a different vocabulary.</p>
+<p>For the same Dutch sentence, the number of tokens varies considerably across models. Because Models 1 and 2 have a maximum sequence length of 128 tokens—and 14% to 27% of our document chunks exceed that limit—some content is simply cut off. Model 3&rsquo;s 8192-token limit means it almost never truncates. Whether truncation explains the performance gap is still an open question.</p>
+<hr>
+
+<h2 class="relative group">What it cost
+    <div id="what-it-cost" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#what-it-cost" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Running this on Azure Databricks, the setup cost around EUR 250. Daily operating cost: about EUR 20, mostly due to overcapacity in the vector database. The pilot required roughly 180 person-hours in 2024 (excluding data ingestion work and the work of end users).</p>
+<p>For reference, a commercial alternative—a product that ingests 675,000 Dutch policy documents with search, summarization, and chat functionality—costs EUR 39 per month. The &ldquo;make or buy&rdquo; question is a legitimate one.</p>
+<hr>
+
+<h2 class="relative group">What&rsquo;s next
+    <div id="whats-next" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#whats-next" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>The pilot proved the concept works: AI search can surface relevant documents that keyword search misses. But there&rsquo;s meaningful work between &ldquo;useful pilot&rdquo; and &ldquo;production tool&rdquo;:</p>
+<ul>
+<li><strong>Better chunking</strong>: Our current strategy is simple—header, introduction, each policy change separately. More sophisticated chunking could improve both retrieval and context.</li>
+<li><strong>Fine-tuning on in-domain data</strong>: The <em>Officiële Bekendmakingen</em> dataset contains Q&amp;A pairs from the <em>Tweede Kamer</em> (Dutch parliament) that could be used to fine-tune a text representation model on exactly the kind of language PBL researchers work with. No one has published such a model on Hugging Face yet—an opportunity to contribute to Dutch NLP.</li>
+<li><strong>Manual hybrid implementation</strong>: Instead of relying on a black-box managed service, building our own hybrid ranking would let us tune the blend between semantic and keyword signals properly.</li>
+<li><strong>Evaluation at scale</strong>: One query is a proof of concept, not a benchmark. A real evaluation requires a test set covering the diversity of researcher questions.</li>
+</ul>
+<hr>
+
+<h2 class="relative group">Takeaway
+    <div id="takeaway" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#takeaway" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>If you&rsquo;re building a search system over a specialized document corpus and keyword search isn&rsquo;t cutting it—this kind of pilot is a reasonable first step. Start with AI-only search before you add the complexity of hybrid. Don&rsquo;t assume a bigger model will win. And check your metadata: a well-chosen filter can do more than a model upgrade.</p>
+<p>The code and further details are internal to PBL, but the methodology is straightforward to replicate on any similar document corpus with the tools available on Hugging Face and Azure.</p>
+
           
           
           
@@ -765,8 +913,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_post/2026-01-01-this-website.md"
-          data-oid-likes="likes_post/2026-01-01-this-website.md"></script>
+          data-oid="views_post/vector-search/index.md"
+          data-oid-likes="likes_post/vector-search/index.md"></script>
       
     </section>
 
@@ -800,14 +948,14 @@
           
             <a
               class="flex text-right text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-              href="/post/llm-cluster-validation/">
+              href="/post/this-website/">
               <span class="leading-6">
-                Teaching an LLM to spot the odd one out&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
+                How I deployed this website&ensp;<span class="inline-block rtl:rotate-180">&rarr;</span>
               </span>
             </a>
             
               <span class="me-6 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
-                <time datetime="2026-01-15T00:00:00&#43;00:00">15 January 2026</time>
+                <time datetime="2026-01-01T00:00:00&#43;00:00">1 January 2026</time>
               </span>
             
           
