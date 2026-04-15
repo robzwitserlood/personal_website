@@ -87,6 +87,11 @@
     &__bullet {
         list-style: square inside;
         margin-left: 1rem;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
     }
 
     &__badges {

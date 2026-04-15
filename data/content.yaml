@@ -13,7 +13,7 @@ BasicInfo:
     - Icon: fas fa-map-marker-alt
       Info: Heiloo, The Netherlands
 
-Profile: "As an AI expert with 4+ years of experience in Data Science and 3+ years in business roles, my strengths include analytical thinking, a deep understanding of AI models and a structured approach to problem-solving. My aim is to expand my expertise in data and AI engineering, thereby mastering the full suite of skills to drive impactful solutions."
+Profile: "As an AI expert with 4+ years of experience in a Data Science role focused on Machine Learning and 3+ years in business roles, my strengths include analytical thinking, a deep understanding of AI models and a structured approach to problem-solving. My aim is to expand my expertise in data and AI engineering, thereby mastering the full suite of skills to drive impactful solutions."
 
 Experience:
   - Employer: The Netherlands Environmental Assessment Agency
@@ -22,9 +22,9 @@ Experience:
       - Title: Data Scientist
         Date: Dec 2021 - Present
         Details:
-          - Computational text analysis with LLM-assistance
-          - Object segmentation on aerial images
-          - Semantic search on Dutch policy documents
+          - LLM finetuning for text cluster validation | [more info](/post/llm-cluster-validation)
+          - Semantic segmentation on aerial images | [more info](/post/semantic-segmentation)
+          - Semantic search on Dutch policy documents | [more info](/post/vector-search)
           - Data ingestion pipeline to data lakehouse 
         Badges: ['Data science', 'Machine learning' ,'NLP', 'Computer vision', 'Data engineering', 'Linked data', 'ELT', 'CI/CD']
   - Employer: TomTom
