@@ -23,7 +23,7 @@ Experience:
         Date: Dec 2021 - Present
         Details:
           - Computational text analysis with LLM-assistance
-          - Object segmentation on aerial images
+          - Semantic segmentation on aerial images ([link](/posts/semantic-segmentation "Semantic segmentation"))
           - Semantic search on Dutch policy documents
           - Data ingestion pipeline to data lakehouse 
         Badges: ['Data science', 'Machine learning' ,'NLP', 'Computer vision', 'Data engineering', 'Linked data', 'ELT', 'CI/CD']
