@@ -1,22 +1,12 @@
 ---
-title: "Can AI find what keyword search can't? A pilot on Dutch policy documents"
+title: "Vector search on Dutch policy documents"
 draft: false
 date: 2025-04-21
 ---
 
-**TL;DR:** We built an AI-powered semantic search engine on 200k+ Dutch government policy documents to help PBL researchers find subsidy documents related to nitrogen reduction. AI-only search reached up to 80% relevance. Hybrid search—contrary to what the literature suggests—underperformed. Here's the story of why.
+## The problem with policy documents
 
----
-
-## The problem with "agricultural subsidies"
-
-Imagine you're a policy researcher at PBL (Planbureau voor de Leefomgeving), trying to understand which subsidies Dutch provinces and water authorities have granted to reduce nitrogen emissions. You turn to the government's official publication database—*Officiële Bekendmakingen*—and type "agricultural subsidies" into the search bar.
-
-Too few results. The documents you're looking for use different words. You try just "subsidies." Now you're drowning in irrelevant results. There's no middle ground.
-
-This is the classic failure mode of keyword search: it matches exact words, not meaning. A subsidy scheme for relocating livestock farms doesn't mention "agricultural subsidy" in its title, but a domain expert knows immediately that it's relevant. Keyword search doesn't understand that.
-
-This is what motivated a pilot project by WLV and IBL at PBL: could an AI-powered search engine bridge that gap?
+Policy documents are a goldmine of information but it's hard to find the right ones quickly. Keyword search can miss relevant documents that use different terminology, while reading through hundreds of results is time-consuming. Semantic search offers a promising solution but how well does it actually work for the formal and complex language in Dutch policy documents?
 
 ---
 
@@ -31,11 +21,7 @@ That's a lot of documents. Each one is structured XML with headers, introduction
 
 ---
 
-## What "AI search" actually means here
-
-Before diving into the experiment, it's worth clarifying what makes this search "AI-powered." The key difference from keyword search is how documents and queries are represented.
-
-In keyword search, a document is essentially a bag of words. In semantic search, each document is converted into a dense vector—a list of hundreds of numbers—by a *text representation model*. These numbers capture meaning: documents about related topics end up close together in this high-dimensional space, even if they share no exact words. When you search, your query is converted into the same kind of vector, and the engine retrieves the documents whose vectors are closest.
+## The embedding models: three flavors of Dutch text representation
 
 We tested three such models:
 
@@ -61,7 +47,7 @@ The twelve configurations came from crossing three variables:
 - **Search mode**: AI-only (semantic) or hybrid (semantic + keyword)
 - **Result filter**: with or without restricting to the category *Landbouw Organisatie en beleid*
 
-A domain expert at PBL labeled all 60 resulting documents (5 results × 12 configurations) as relevant, partly relevant, or not relevant.
+A domain expert labeled all 60 resulting documents (5 results × 12 configurations) as relevant, partly relevant, or not relevant.
 
 ---
 
@@ -71,11 +57,78 @@ A domain expert at PBL labeled all 60 resulting documents (5 results × 12 confi
 
 Model 3 is nearly five times larger than Model 1, yet they perform similarly on this task. Model 2, despite having access to more multilingual training data, actually underperforms both. This is a useful reminder: model size and breadth don't guarantee better performance on a narrow, domain-specific task. A model trained specifically on Dutch text can outpunch its weight class.
 
+<div style="max-width:700px; margin:0 auto;">
+  <canvas id="relevanceChart"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+  new Chart(document.getElementById('relevanceChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Model 2', 'Model 1', 'Model 3'],
+      datasets: [
+        {
+          label: 'Not relevant',
+          data: [65, 35, 35],
+          backgroundColor: '#8B0000',
+        },
+        {
+          label: 'Partly relevant',
+          data: [5, 25, 25],
+          backgroundColor: '#C0C0C0',
+        },
+        {
+          label: 'Relevant',
+          data: [30, 40, 40],
+          backgroundColor: '#6B7C1A',
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          stacked: true,
+          grid: { display: false },
+          ticks: { font: { size: 14 } },
+        },
+        y: {
+          stacked: true,
+          min: 0,
+          max: 100,
+          ticks: {
+            callback: value => value + '%',
+            stepSize: 20,
+            font: { size: 13 },
+          },
+          grid: { color: '#e0e0e0' },
+        },
+      },
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            padding: 20,
+            font: { size: 13 },
+            boxWidth: 18,
+            boxHeight: 14,
+          },
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%`,
+          },
+        },
+      },
+    },
+  });
+</script>
+
 ### Hybrid search underperforms—and we're not sure why
 
 This is the most counterintuitive finding. The literature consistently shows that hybrid search (combining semantic and keyword signals) outperforms semantic-only search. We found the opposite: hybrid configurations performed worse, and in some cases dramatically so. Models 1 and 3 in hybrid mode returned no relevant documents at all in the top 5 when no category filter was applied.
 
-The frustrating part: we can't fully explain it. The hybrid search implementation runs on Azure AI Search, whose code isn't open source. We can't inspect how it's merging the two signals, or whether there's a hyperparameter we should have tuned. This is a limitation worth flagging for anyone else running similar experiments on managed search platforms.
+The frustrating part: we can't fully explain it. The hybrid search implementation runs on Databricks' [Mosaic AI Vector Search](https://docs.databricks.com/aws/en/vector-search/vector-search#how-does-mosaic-ai-vector-search-work), whose code isn't open source. We can't inspect how the [Okapi BM25](https://en.wikipedia.org/wiki/Okapi_BM25) algorithm is configured. This is a limitation worth flagging for anyone else running similar experiments on managed search platforms.
 
 ### The category filter makes a big difference
 
@@ -83,17 +136,16 @@ Restricting results to the *Landbouw Organisatie en beleid* category improved re
 
 ### Tokenization: a hidden culprit?
 
-One hypothesis for the performance differences between models is tokenization. When a model processes text, it first breaks it into tokens—subword units that depend on the tokenizer design. Model 1 uses Byte-Pair Encoding (BPE), Model 2 uses WordPiece (WP), and Model 3 also uses BPE but with a different vocabulary.
+One hypothesis for the performance differences between models is tokenization. Model 1 uses Byte-Pair Encoding (BPE), Model 2 uses WordPiece (WP), and Model 3 also uses BPE but with a different vocabulary.
 
-For the same Dutch sentence, the number of tokens varies considerably across models. Because Models 1 and 2 have a maximum sequence length of 128 tokens—and 14% to 27% of our document chunks exceed that limit—some content is simply cut off. Model 3's 8192-token limit means it almost never truncates. Whether truncation explains the performance gap is still an open question.
+<figure>
+    <img src="tokenize.jpg" alt="Tokenization result" />
+    <figcaption>Tokenization of the search query across different models</figcaption>
+</figure>
 
----
+The tokenization of the search query varies significantly across models. Model 3 splits key words like `stikstof` and `subsidie` into multiple small tokens, which could impact their ability to capture the query's meaning effectively.
 
-## What it cost
-
-Running this on Azure Databricks, the setup cost around EUR 250. Daily operating cost: about EUR 20, mostly due to overcapacity in the vector database. The pilot required roughly 180 person-hours in 2024 (excluding data ingestion work and the work of end users).
-
-For reference, a commercial alternative—a product that ingests 675,000 Dutch policy documents with search, summarization, and chat functionality—costs EUR 39 per month. The "make or buy" question is a legitimate one.
+Moreover, for the same Dutch sentence, the number of tokens varies considerably across models. Because Models 1 and 2 have a maximum sequence length of 128 tokens—and 14% to 27% of our document chunks exceed that limit—some content is simply cut off. Model 3's 8192-token limit means it almost never truncates. Whether truncation explains the performance gap is still an open question.
 
 ---
 
@@ -101,8 +153,7 @@ For reference, a commercial alternative—a product that ingests 675,000 Dutch p
 
 The pilot proved the concept works: AI search can surface relevant documents that keyword search misses. But there's meaningful work between "useful pilot" and "production tool":
 
-- **Better chunking**: Our current strategy is simple—header, introduction, each policy change separately. More sophisticated chunking could improve both retrieval and context.
-- **Fine-tuning on in-domain data**: The *Officiële Bekendmakingen* dataset contains Q&A pairs from the *Tweede Kamer* (Dutch parliament) that could be used to fine-tune a text representation model on exactly the kind of language PBL researchers work with. No one has published such a model on Hugging Face yet—an opportunity to contribute to Dutch NLP.
+- **Fine-tuning on in-domain data**: The *Officiële Bekendmakingen* dataset contains Q&A pairs from the *Tweede Kamer* (Dutch parliament) that could be used to fine-tune a text representation model on exactly the kind of language in policy documents. No one has published such a model on Hugging Face yet—an opportunity to contribute to Dutch NLP.
 - **Manual hybrid implementation**: Instead of relying on a black-box managed service, building our own hybrid ranking would let us tune the blend between semantic and keyword signals properly.
 - **Evaluation at scale**: One query is a proof of concept, not a benchmark. A real evaluation requires a test set covering the diversity of researcher questions.
 
@@ -111,5 +162,3 @@ The pilot proved the concept works: AI search can surface relevant documents tha
 ## Takeaway
 
 If you're building a search system over a specialized document corpus and keyword search isn't cutting it—this kind of pilot is a reasonable first step. Start with AI-only search before you add the complexity of hybrid. Don't assume a bigger model will win. And check your metadata: a well-chosen filter can do more than a model upgrade.
-
-The code and further details are internal to PBL, but the methodology is straightforward to replicate on any similar document corpus with the tools available on Hugging Face and Azure.
